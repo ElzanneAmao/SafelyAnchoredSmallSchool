@@ -119,40 +119,102 @@
         .icon-filled {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        /* Curriculum card blue overlay on hover */
+        .curriculum-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .curriculum-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 108, 168, 0);
+            border-radius: inherit;
+            transition: background 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .curriculum-card:hover::after {
+            background: rgba(27, 108, 168, 0.06);
+        }
+        .curriculum-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enrolment step hover */
+        .enrolment-step .step-circle {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .enrolment-step:hover .step-circle {
+            background-color: #005387 !important;
+            border-color: #9acbff !important;
+            transform: scale(1.1);
+        }
+        .enrolment-step:hover .step-num {
+            color: #ffffff !important;
+        }
+        .enrolment-step:hover h4 {
+            color: #005387 !important;
+        }
+
+        /* Testimonial hover */
+        .testimonial-card {
+            transition: all 0.35s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(27, 108, 168, 0.14);
+            border-color: rgba(27, 108, 168, 0.2);
+        }
+
+        /* Testimonial carousel */
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 6px;
+        }
+        @media (min-width: 768px) {
+            .testimonial-slide {
+                min-width: 50%;
+            }
+        }
+
+        /* CTA shimmer */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .cta-btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+            animation: shimmer 3s infinite;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- Top Navigation -->
+<!-- Top Navigation — LP-optimized: logo + single CTA only -->
 <nav class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-50 shadow-sm shadow-primary/10 transition-all duration-300">
     <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
         <a class="flex items-center gap-3" href="#">
             <img alt="Safely Anchored Logo" class="h-12 w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1VeqGSOEvBmRGaeq-36iv1LjknUwgiXaRTHH9HP6niERg9NWNmVliFudcqIp016h1Wqg1Ic5zzWuWjBnNifXXfhnXEeAExrhYWeXg0bxSybgwuEVnYHhFPh7R1Yt9xVrZkqmBf59SiRVu6RNdTcidObyoP_tcHoLbVM0VvusbJBQjK4-v1QW3IiZPOHEsSP5_mQL_lHmzRYXYDM-zIWhm7fymfv134r8OiTeWVsX4sI3zaByIMTfrjuLA">
             <span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Safely Anchored</span>
         </a>
-        <div class="hidden md:flex items-center gap-gutter">
-            <ul class="flex items-center gap-6">
-                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#about">Our Values</a></li>
-                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#curriculum">Curriculum</a></li>
-                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#enrolment">Admissions</a></li>
-                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#fees">Fees</a></li>
-            </ul>
-            <a class="bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT transition-all duration-300 active:scale-95 shadow-ambient" href="#contact">Apply Now</a>
-        </div>
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden text-primary p-2" id="mobile-menu-btn" aria-label="Open menu">
-            <span class="material-symbols-outlined" data-icon="menu">menu</span>
-        </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div class="hidden md:hidden bg-surface border-t border-outline-variant/20 shadow-ambient" id="mobile-menu">
-        <div class="flex flex-col px-margin-mobile py-4 gap-2">
-            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#about">Our Values</a>
-            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#curriculum">Curriculum</a>
-            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#enrolment">Admissions</a>
-            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#fees">Fees</a>
-            <a class="bg-primary text-coastal-white font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT text-center mt-2" href="#contact">Apply Now</a>
-        </div>
+        <a class="bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT transition-all duration-300 active:scale-95 shadow-ambient" href="#lead-form">Apply Now</a>
     </div>
 </nav>
 
@@ -213,15 +275,15 @@
                                 <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="child_name" placeholder="Child's First Name" type="text">
                             </div>
                             <div>
-                                <label class="sr-only" for="grade">Grade applying for</label>
+                                <label class="sr-only" for="grade">Grade in 2027</label>
                                 <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="grade">
-                                    <option disabled selected value="">Select Grade</option>
-                                    <option value="r">Grade R</option>
-                                    <option value="1">Grade 1</option>
-                                    <option value="2">Grade 2</option>
-                                    <option value="3">Grade 3</option>
-                                    <option value="4">Grade 4</option>
-                                    <option value="5">Grade 5</option>
+                                    <option disabled selected value="">Grade in 2027</option>
+                                    <option value="r">Grade R (2027)</option>
+                                    <option value="1">Grade 1 (2027)</option>
+                                    <option value="2">Grade 2 (2027)</option>
+                                    <option value="3">Grade 3 (2027)</option>
+                                    <option value="4">Grade 4 (2027)</option>
+                                    <option value="5">Grade 5 (2027)</option>
                                 </select>
                             </div>
                         </div>
@@ -251,13 +313,36 @@
         </div>
     </section>
 
-    <!-- Credibility Bar -->
-    <div class="bg-primary-container text-on-primary-container py-4">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
-            <span class="material-symbols-outlined text-secondary icon-filled" data-icon="verified">verified</span>
-            <p class="font-body-md text-sm md:text-base font-medium">
-                Fully registered with the Department of Education and an active member of the Association of Christian Schools International (ACSI)
-            </p>
+    <!-- Credibility Bar with logos -->
+    <div class="bg-primary-container text-on-primary-container py-5">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary icon-filled text-xl" data-icon="verified">verified</span>
+                <p class="font-body-md text-sm md:text-base font-medium">
+                    Fully registered with the Department of Education and an active member of ACSI
+                </p>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- Dept of Basic Education badge -->
+                <div class="bg-coastal-white/15 backdrop-blur-sm rounded px-3 py-1.5 flex items-center gap-2 border border-coastal-white/20">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7v4c0 5.55 4.08 10.74 10 12 5.92-1.26 10-6.45 10-12V7L12 2z" fill="#C99F60" fill-opacity="0.3" stroke="#C99F60" stroke-width="1.2"/>
+                        <path d="M12 6l-4 2v3c0 2.8 1.7 5.4 4 6 2.3-.6 4-3.2 4-6V8l-4-2z" fill="#C99F60" fill-opacity="0.5"/>
+                        <path d="M11 10h2v3h-2z M11 14h2v1.5h-2z" fill="white"/>
+                    </svg>
+                    <span class="font-label-sm text-xs text-coastal-white font-bold whitespace-nowrap">Dept. of Education</span>
+                </div>
+                <!-- ACSI badge -->
+                <div class="bg-coastal-white/15 backdrop-blur-sm rounded px-3 py-1.5 flex items-center gap-2 border border-coastal-white/20">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" fill="#C99F60" fill-opacity="0.3" stroke="#C99F60" stroke-width="1.2"/>
+                        <path d="M7 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="white" stroke-width="1.2" fill="none"/>
+                        <path d="M12 8V5M9 9L7 7M15 9l2-2" stroke="white" stroke-width="1" stroke-linecap="round"/>
+                        <rect x="10" y="13" width="4" height="5" rx="0.5" fill="white" fill-opacity="0.8"/>
+                    </svg>
+                    <span class="font-label-sm text-xs text-coastal-white font-bold whitespace-nowrap">ACSI Member</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -305,32 +390,28 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- CAPS Curriculum Card -->
-                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                <div class="curriculum-card bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 cursor-default">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
                         <span class="material-symbols-outlined text-coastal-white" data-icon="menu_book">menu_book</span>
                     </div>
                     <h4 class="font-headline-md text-lg text-deep-anchor mb-2">CAPS Curriculum</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">Delivering the national curriculum with personalized attention and Christian values woven throughout.</p>
                 </div>
-                <!-- Active Sports Card -->
-                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                <div class="curriculum-card bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 cursor-default">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
                         <span class="material-symbols-outlined text-coastal-white" data-icon="sports_soccer">sports_soccer</span>
                     </div>
                     <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Active Sports</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">Structured physical education including mini-rugby and soccer to build teamwork and gross motor skills.</p>
                 </div>
-                <!-- Cape Kinetics Card -->
-                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                <div class="curriculum-card bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 cursor-default">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
                         <span class="material-symbols-outlined text-coastal-white" data-icon="fitness_center">fitness_center</span>
                     </div>
                     <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Cape Kinetics</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">Specialized kinetics program designed to enhance coordination, core strength, and developmental milestones.</p>
                 </div>
-                <!-- Aftercare & Transport Card -->
-                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                <div class="curriculum-card bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 cursor-default">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
                         <span class="material-symbols-outlined text-coastal-white" data-icon="directions_bus">directions_bus</span>
                     </div>
@@ -348,35 +429,33 @@
             <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
         </h2>
         <div class="relative">
-            <!-- Connecting Line -->
-            <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 -translate-y-1/2 z-0"></div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
-                        <span class="font-headline-md text-primary">1</span>
+                <div class="enrolment-step bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center cursor-default">
+                    <div class="step-circle w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="step-num font-headline-md text-primary transition-colors duration-300">1</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Trial Day</h4>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2 transition-colors duration-300">Trial Day</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">Your child spends a day with us to experience our environment and interact with peers.</p>
                 </div>
-                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
-                        <span class="font-headline-md text-primary">2</span>
+                <div class="enrolment-step bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center cursor-default">
+                    <div class="step-circle w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="step-num font-headline-md text-primary transition-colors duration-300">2</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Honest Feedback</h4>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2 transition-colors duration-300">Honest Feedback</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">We provide open communication about whether our school is the best fit for your child's needs.</p>
                 </div>
-                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
-                        <span class="font-headline-md text-primary">3</span>
+                <div class="enrolment-step bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center cursor-default">
+                    <div class="step-circle w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="step-num font-headline-md text-primary transition-colors duration-300">3</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Acceptance Letter</h4>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2 transition-colors duration-300">Acceptance Letter</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">If it's a great match, you'll receive a formal offer of placement for your child.</p>
                 </div>
-                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full bg-primary border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
-                        <span class="material-symbols-outlined text-coastal-white icon-filled" data-icon="anchor">anchor</span>
+                <div class="enrolment-step bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center cursor-default">
+                    <div class="step-circle w-16 h-16 rounded-full bg-primary border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="material-symbols-outlined text-coastal-white icon-filled transition-colors duration-300" data-icon="anchor">anchor</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Confirmation</h4>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2 transition-colors duration-300">Confirmation</h4>
                     <p class="font-body-md text-sm text-on-surface-variant">Complete the enrolment paperwork and officially join the Safely Anchored family.</p>
                 </div>
             </div>
@@ -448,8 +527,8 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative">
+    <!-- Testimonials Carousel -->
+    <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative" id="testimonials">
         <div class="text-center mb-12 relative z-10">
             <h2 class="font-headline-lg text-headline-lg text-primary relative inline-block">
                 What other parents say
@@ -457,26 +536,70 @@
             </h2>
         </div>
         <div class="absolute right-0 top-10 text-9xl text-surface-variant/40 font-serif leading-none select-none z-0">&ldquo;</div>
-        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative">
-                <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
-                <p class="font-body-md text-on-surface italic mb-6 mt-2">"The small classes make such a difference. My son comes home happy every day and his confidence has soared since joining safely anchored."</p>
-                <div class="flex items-center gap-3">
-                    <div>
-                        <p class="font-label-lg text-deep-anchor">Lauren Ferguson</p>
-                        <p class="font-label-sm text-outline">Parent of Grade 2 Student</p>
+        <div class="relative z-10 overflow-hidden">
+            <div class="testimonial-track" id="testimonial-track">
+                <!-- Slide 1 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative mx-2">
+                        <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
+                        <p class="font-body-md text-on-surface italic mb-6 mt-2">"The small classes make such a difference. My son comes home happy every day and his confidence has soared since joining safely anchored."</p>
+                        <div class="flex items-center gap-3">
+                            <div>
+                                <p class="font-label-lg text-deep-anchor">Lauren Ferguson</p>
+                                <p class="font-label-sm text-outline">Parent of Grade 2 Student</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative mx-2">
+                        <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
+                        <p class="font-body-md text-on-surface italic mb-6 mt-2">"A truly nurturing environment. The teachers know exactly how my daughter is doing academically and emotionally. We couldn't be happier with our choice."</p>
+                        <div class="flex items-center gap-3">
+                            <div>
+                                <p class="font-label-lg text-deep-anchor">Carrie-Anne Duvenhage</p>
+                                <p class="font-label-sm text-outline">Parent of Grade R Student</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 (extra to show carousel works) -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative mx-2">
+                        <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
+                        <p class="font-body-md text-on-surface italic mb-6 mt-2">"We moved from a bigger school and the difference has been incredible. Our children are thriving, and we love the close-knit community feel."</p>
+                        <div class="flex items-center gap-3">
+                            <div>
+                                <p class="font-label-lg text-deep-anchor">Mark &amp; Tanya Visser</p>
+                                <p class="font-label-sm text-outline">Parents of Grade 1 &amp; Grade 3 Students</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative mx-2">
+                        <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
+                        <p class="font-body-md text-on-surface italic mb-6 mt-2">"The Christian foundation and values-based education give us peace of mind. The teachers genuinely care about each child's individual journey."</p>
+                        <div class="flex items-center gap-3">
+                            <div>
+                                <p class="font-label-lg text-deep-anchor">Samantha Krige</p>
+                                <p class="font-label-sm text-outline">Parent of Grade R Student</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative">
-                <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
-                <p class="font-body-md text-on-surface italic mb-6 mt-2">"A truly nurturing environment. The teachers know exactly how my daughter is doing academically and emotionally. We couldn't be happier with our choice."</p>
-                <div class="flex items-center gap-3">
-                    <div>
-                        <p class="font-label-lg text-deep-anchor">Carrie-Anne Duvenhage</p>
-                        <p class="font-label-sm text-outline">Parent of Grade R Student</p>
-                    </div>
-                </div>
+            <!-- Carousel navigation -->
+            <div class="flex items-center justify-center gap-4 mt-8">
+                <button class="w-10 h-10 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-coastal-white transition-all duration-300 flex items-center justify-center" id="testimonial-prev" aria-label="Previous testimonial">
+                    <span class="material-symbols-outlined text-xl">chevron_left</span>
+                </button>
+                <div class="flex gap-2" id="testimonial-dots"></div>
+                <button class="w-10 h-10 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-coastal-white transition-all duration-300 flex items-center justify-center" id="testimonial-next" aria-label="Next testimonial">
+                    <span class="material-symbols-outlined text-xl">chevron_right</span>
+                </button>
             </div>
         </div>
     </section>
@@ -522,28 +645,46 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="py-24 bg-primary text-coastal-white relative overflow-hidden" id="contact">
-        <div class="absolute inset-0 opacity-10">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+    <!-- Final CTA — Redesigned -->
+    <section class="relative overflow-hidden" id="contact">
+        <!-- Deep gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-deep-anchor via-primary to-primary-container"></div>
+        <!-- Layered wave pattern -->
+        <div class="absolute inset-0 opacity-[0.07]">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <defs>
-                    <pattern height="40" id="waves" patternUnits="userSpaceOnUse" width="100">
-                        <path d="M0 20 Q 25 5, 50 20 T 100 20" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    <pattern id="waves-cta" patternUnits="userSpaceOnUse" width="120" height="50">
+                        <path d="M0 25 Q 30 10, 60 25 T 120 25" fill="none" stroke="white" stroke-width="1.5"/>
+                        <path d="M0 35 Q 30 20, 60 35 T 120 35" fill="none" stroke="white" stroke-width="1"/>
                     </pattern>
                 </defs>
-                <rect fill="url(#waves)" height="100%" width="100%"></rect>
+                <rect fill="url(#waves-cta)" width="100%" height="100%"/>
             </svg>
         </div>
-        <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
-            <h2 class="font-display-lg text-display-lg mb-6 text-coastal-white relative inline-block">
-                Come see if this is where your child will thrive.
-                <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
-            </h2>
-            <p class="font-body-lg text-body-lg text-primary-fixed-dim mb-10 mt-4">Schedule a visit to meet our educators and see our classrooms in action.</p>
-            <a class="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container hover:text-on-secondary-container text-coastal-white font-label-lg text-label-lg px-8 py-4 rounded-DEFAULT transition-all duration-300 shadow-lg border border-secondary-fixed/30 active:scale-95" href="#lead-form">
-                Start Your Enrolment Journey
-                <span class="material-symbols-outlined" data-icon="sailing">sailing</span>
-            </a>
+        <!-- Top decorative accent -->
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-secondary via-accent-cyan to-secondary"></div>
+        <!-- Glow orbs -->
+        <div class="absolute -top-20 -right-20 w-72 h-72 bg-accent-cyan/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 py-28 md:py-32">
+            <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
+                <!-- Anchor icon -->
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-coastal-white/10 border border-coastal-white/20 mb-8 backdrop-blur-sm">
+                    <span class="material-symbols-outlined text-accent-cyan text-3xl icon-filled">anchor</span>
+                </div>
+                <h2 class="font-display-lg text-display-lg text-coastal-white mb-4 leading-tight">
+                    Come see if this is where your child will thrive.
+                </h2>
+                <p class="font-body-lg text-body-lg text-coastal-white/70 mb-10 max-w-xl mx-auto">
+                    Schedule a visit to meet our educators and see our classrooms in action.
+                </p>
+                <a class="cta-btn-shimmer inline-flex items-center justify-center gap-3 bg-coastal-white text-primary hover:text-deep-anchor font-label-lg text-label-lg px-10 py-5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 group" href="#lead-form">
+                    Start Your Enrolment Journey
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="sailing">sailing</span>
+                </a>
+                <p class="mt-6 font-label-sm text-coastal-white/40">No commitment required &mdash; just a conversation.</p>
+            </div>
         </div>
     </section>
 </main>
@@ -575,13 +716,28 @@
         </div>
         <div class="md:col-span-1 flex flex-col gap-4">
             <h4 class="font-label-lg text-secondary font-bold mb-2 uppercase tracking-wider">Accreditations</h4>
-            <div class="flex gap-4">
-                <div class="bg-coastal-white/10 p-2 rounded flex items-center justify-center h-12 w-24 border border-secondary/50">
-                    <span class="font-label-sm text-xs font-bold text-center text-secondary">Dept. of Ed</span>
-                </div>
-                <div class="bg-coastal-white/10 p-2 rounded flex items-center justify-center h-12 w-24 border border-secondary/50">
-                    <span class="font-label-sm text-xs font-bold text-center text-secondary">ACSI</span>
-                </div>
+            <div class="flex gap-4 items-center">
+                <!-- DBE Logo placeholder -->
+                <a href="https://www.education.gov.za/" target="_blank" rel="noopener noreferrer" class="bg-coastal-white/10 hover:bg-coastal-white/20 transition-colors p-3 rounded-lg flex items-center justify-center border border-coastal-white/10" title="Department of Basic Education">
+                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="46" height="34" rx="4" fill="none" stroke="#C99F60" stroke-width="1"/>
+                        <path d="M24 5L14 10v6c0 7 4.3 13.5 10 15 5.7-1.5 10-8 10-15v-6L24 5z" fill="#C99F60" fill-opacity="0.25" stroke="#C99F60" stroke-width="0.8"/>
+                        <path d="M24 9l-6 3v4c0 4.5 2.6 8.7 6 9.7 3.4-1 6-5.2 6-9.7v-4l-6-3z" fill="#C99F60" fill-opacity="0.4"/>
+                        <path d="M22.5 14h3v4h-3zM22.5 19.5h3v2h-3z" fill="white" fill-opacity="0.9"/>
+                        <text x="24" y="33" text-anchor="middle" fill="#C99F60" font-family="Quicksand,sans-serif" font-size="4" font-weight="600">DBE</text>
+                    </svg>
+                </a>
+                <!-- ACSI Logo placeholder -->
+                <a href="https://www.acsi.org/" target="_blank" rel="noopener noreferrer" class="bg-coastal-white/10 hover:bg-coastal-white/20 transition-colors p-3 rounded-lg flex items-center justify-center border border-coastal-white/10" title="Association of Christian Schools International">
+                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="46" height="34" rx="4" fill="none" stroke="#C99F60" stroke-width="1"/>
+                        <circle cx="24" cy="15" r="9" fill="#C99F60" fill-opacity="0.25" stroke="#C99F60" stroke-width="0.8"/>
+                        <path d="M18 19c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="white" stroke-width="0.8" fill="none" stroke-opacity="0.8"/>
+                        <path d="M24 12V9M20 13l-2-2M28 13l2-2" stroke="white" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.8"/>
+                        <rect x="22" y="17" width="4" height="5" rx="0.5" fill="white" fill-opacity="0.7"/>
+                        <text x="24" y="33" text-anchor="middle" fill="#C99F60" font-family="Quicksand,sans-serif" font-size="4" font-weight="600">ACSI</text>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -597,17 +753,61 @@
     Now Enrolling for 2026
 </a>
 
-<!-- Mobile Menu Toggle -->
 <script>
-    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-        var menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.add('hidden');
+    // Testimonial carousel
+    (function() {
+        var track = document.getElementById('testimonial-track');
+        var slides = track.querySelectorAll('.testimonial-slide');
+        var prevBtn = document.getElementById('testimonial-prev');
+        var nextBtn = document.getElementById('testimonial-next');
+        var dotsContainer = document.getElementById('testimonial-dots');
+        var currentIndex = 0;
+        var slidesPerView = window.innerWidth >= 768 ? 2 : 1;
+        var totalPages = Math.ceil(slides.length / slidesPerView);
+
+        function buildDots() {
+            dotsContainer.innerHTML = '';
+            for (var i = 0; i < totalPages; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' +
+                    (i === currentIndex ? 'bg-primary w-6' : 'bg-outline-variant');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.dataset.index = i;
+                dot.addEventListener('click', function() {
+                    goTo(parseInt(this.dataset.index));
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function goTo(index) {
+            if (index < 0) index = totalPages - 1;
+            if (index >= totalPages) index = 0;
+            currentIndex = index;
+            var offset = currentIndex * (100 / slidesPerView) * slidesPerView;
+            track.style.transform = 'translateX(-' + offset + '%)';
+            buildDots();
+        }
+
+        prevBtn.addEventListener('click', function() { goTo(currentIndex - 1); });
+        nextBtn.addEventListener('click', function() { goTo(currentIndex + 1); });
+
+        // Auto-advance every 6 seconds
+        var autoplay = setInterval(function() { goTo(currentIndex + 1); }, 6000);
+        track.closest('section').addEventListener('mouseenter', function() { clearInterval(autoplay); });
+        track.closest('section').addEventListener('mouseleave', function() {
+            autoplay = setInterval(function() { goTo(currentIndex + 1); }, 6000);
         });
-    });
+
+        window.addEventListener('resize', function() {
+            slidesPerView = window.innerWidth >= 768 ? 2 : 1;
+            totalPages = Math.ceil(slides.length / slidesPerView);
+            if (currentIndex >= totalPages) currentIndex = totalPages - 1;
+            goTo(currentIndex);
+        });
+
+        buildDots();
+    })();
 </script>
 </body>
 </html>
