@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Safely Anchored Small School - Sunningdale</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "charcoal-ink": "#383838",
+                        "surface-variant": "#e4e2dd",
+                        "inverse-primary": "#9acbff",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#007190",
+                        "primary-fixed": "#cfe5ff",
+                        "primary": "#005387",
+                        "on-background": "#1b1c19",
+                        "inverse-surface": "#30312e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#02629e",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "on-surface-variant": "#414750",
+                        "surface": "#fbf9f4",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-tertiary-fixed-variant": "#004d63",
+                        "surface-container": "#f0eee9",
+                        "background": "#fbf9f4",
+                        "deep-anchor": "#0E3B5C",
+                        "outline-variant": "#c0c7d1",
+                        "on-secondary-fixed-variant": "#5f4109",
+                        "lighthouse-red": "#D62828",
+                        "accent-cyan": "#22B3E0",
+                        "on-tertiary-fixed": "#001f29",
+                        "on-primary-fixed-variant": "#004a78",
+                        "secondary": "#C99F60",
+                        "on-primary-fixed": "#001d34",
+                        "on-surface": "#1b1c19",
+                        "tertiary-fixed-dim": "#62d4ff",
+                        "secondary-fixed": "#ffddb0",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#005770",
+                        "on-primary-container": "#d9e9ff",
+                        "surface-bright": "#fbf9f4",
+                        "on-secondary-container": "#79571f",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#bce9ff",
+                        "primary-container": "#1b6ca8",
+                        "secondary-fixed-dim": "#ecbf7d",
+                        "surface-dim": "#dbdad5",
+                        "outline": "#717881",
+                        "coastal-white": "#FFFFFF",
+                        "primary-fixed-dim": "#9acbff",
+                        "on-secondary-fixed": "#281800",
+                        "on-tertiary-container": "#caedff",
+                        "secondary-container": "#fed08c",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#eae8e3"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "1rem",
+                        xl: "1.5rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "48px",
+                        "container-max": "1200px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Libre Franklin", "sans-serif"],
+                        "headline-md": ["Quicksand", "sans-serif"],
+                        "headline-lg": ["Quicksand", "sans-serif"],
+                        "label-lg": ["Quicksand", "sans-serif"],
+                        "display-lg": ["Quicksand", "sans-serif"],
+                        "label-sm": ["Quicksand", "sans-serif"],
+                        "headline-lg-mobile": ["Quicksand", "sans-serif"],
+                        "body-lg": ["Libre Franklin", "sans-serif"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                        "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+                    },
+                    boxShadow: {
+                        ambient: "0 4px 12px rgba(27, 108, 168, 0.08)",
+                        "ambient-hover": "0 8px 24px rgba(27, 108, 168, 0.12)"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Top Navigation -->
+<nav class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-50 shadow-sm shadow-primary/10 transition-all duration-300">
+    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+        <a class="flex items-center gap-3" href="#">
+            <img alt="Safely Anchored Logo" class="h-12 w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1VeqGSOEvBmRGaeq-36iv1LjknUwgiXaRTHH9HP6niERg9NWNmVliFudcqIp016h1Wqg1Ic5zzWuWjBnNifXXfhnXEeAExrhYWeXg0bxSybgwuEVnYHhFPh7R1Yt9xVrZkqmBf59SiRVu6RNdTcidObyoP_tcHoLbVM0VvusbJBQjK4-v1QW3IiZPOHEsSP5_mQL_lHmzRYXYDM-zIWhm7fymfv134r8OiTeWVsX4sI3zaByIMTfrjuLA">
+            <span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Safely Anchored</span>
+        </a>
+        <div class="hidden md:flex items-center gap-gutter">
+            <ul class="flex items-center gap-6">
+                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#about">Our Values</a></li>
+                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#curriculum">Curriculum</a></li>
+                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#enrolment">Admissions</a></li>
+                <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#fees">Fees</a></li>
+            </ul>
+            <a class="bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT transition-all duration-300 active:scale-95 shadow-ambient" href="#contact">Apply Now</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-primary p-2" id="mobile-menu-btn" aria-label="Open menu">
+            <span class="material-symbols-outlined" data-icon="menu">menu</span>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden bg-surface border-t border-outline-variant/20 shadow-ambient" id="mobile-menu">
+        <div class="flex flex-col px-margin-mobile py-4 gap-2">
+            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#about">Our Values</a>
+            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#curriculum">Curriculum</a>
+            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#enrolment">Admissions</a>
+            <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary py-3 px-4 rounded transition-colors" href="#fees">Fees</a>
+            <a class="bg-primary text-coastal-white font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT text-center mt-2" href="#contact">Apply Now</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center pt-8 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/90 to-surface/40 z-10"></div>
+            <img alt="Happy students at Safely Anchored Small School" class="w-full h-full object-cover object-top opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UL0hkVV_5Qs33F29_eyhpmMFNJUg8WHf66m4htGOj4KQR08HCHKKf5sFAfyBUGLX87nMTfoYUWQeyldTWXbBirGsGI6tkbT5xI0y_4lAszVd6vo0DPQ90Xj85nUvHlzO009-lVdC8nqouKB9jBWsKmqJwrqp6cn6r5pJLsbDHKOUA91zGYTtA8OVRQ5fOg1tgXT6tJkAe1cLOFTYeHgLG2NTcWy9wX9Hf7liQ2JaIhdDhKIXWJFwAlnA">
+        </div>
+        <div class="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <div class="col-span-1 lg:col-span-7 space-y-stack-md lg:pr-12">
+                <h1 class="font-display-lg text-display-lg text-deep-anchor leading-tight">
+                    A small Christian school in Sunningdale where your child is known by name.
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Nurturing growth from Grade R to Grade 5 in a secure, loving environment. We ensure dedicated attention with a maximum of 20 children per class.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <div class="flex items-center gap-2 text-on-surface">
+                        <span class="material-symbols-outlined text-tertiary-container" data-icon="check_circle">check_circle</span>
+                        <span>CAPS Curriculum</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-on-surface">
+                        <span class="material-symbols-outlined text-tertiary-container" data-icon="check_circle">check_circle</span>
+                        <span>Christian Values</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-on-surface">
+                        <span class="material-symbols-outlined text-tertiary-container" data-icon="check_circle">check_circle</span>
+                        <span>Dedicated Extramurals</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Hero Lead Form -->
+            <div class="col-span-1 lg:col-span-5 mt-stack-lg lg:mt-0" id="lead-form">
+                <div class="bg-coastal-white rounded-xl shadow-ambient border border-primary-fixed/30 p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-secondary-fixed opacity-20 rounded-bl-full -mr-4 -mt-4"></div>
+                    <h2 class="font-headline-md text-headline-md text-primary mb-2">Book a School Tour</h2>
+                    <p class="font-body-md text-sm text-on-surface-variant mb-6">Come see our unique environment firsthand.</p>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="sr-only" for="parent_name">Name + Surname</label>
+                            <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="parent_name" placeholder="Parent Name &amp; Surname" type="text">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="sr-only" for="email">Email</label>
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="email" placeholder="Email Address" type="email">
+                            </div>
+                            <div>
+                                <label class="sr-only" for="phone">Phone</label>
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="phone" placeholder="Phone Number" type="tel">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="sr-only" for="child_name">Child's First Name</label>
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="child_name" placeholder="Child's First Name" type="text">
+                            </div>
+                            <div>
+                                <label class="sr-only" for="grade">Grade applying for</label>
+                                <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="grade">
+                                    <option disabled selected value="">Select Grade</option>
+                                    <option value="r">Grade R</option>
+                                    <option value="1">Grade 1</option>
+                                    <option value="2">Grade 2</option>
+                                    <option value="3">Grade 3</option>
+                                    <option value="4">Grade 4</option>
+                                    <option value="5">Grade 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="sr-only" for="call_time">Best time to call</label>
+                            <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="call_time">
+                                <option disabled selected value="">Best time to call</option>
+                                <option value="morning">Morning (08:00 - 12:00)</option>
+                                <option value="afternoon">Afternoon (12:00 - 16:00)</option>
+                            </select>
+                        </div>
+                        <div class="flex items-start gap-3 mt-2">
+                            <div class="flex items-center h-5">
+                                <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="popia" type="checkbox">
+                            </div>
+                            <div class="text-sm text-on-surface-variant">
+                                <label for="popia">I consent to the collection and processing of my personal information in accordance with POPIA for enrolment purposes.</label>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg py-4 rounded-DEFAULT transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group" type="button">
+                            Submit Enquiry
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Bar -->
+    <div class="bg-primary-container text-on-primary-container py-4">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
+            <span class="material-symbols-outlined text-secondary icon-filled" data-icon="verified">verified</span>
+            <p class="font-body-md text-sm md:text-base font-medium">
+                Fully registered with the Department of Education and an active member of the Association of Christian Schools International (ACSI)
+            </p>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="about">
+        <div class="text-center mb-12">
+            <h2 class="font-headline-lg text-headline-lg text-primary relative inline-block">
+                A Foundation of Faith &amp; Learning
+                <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h3 class="font-headline-md text-headline-md text-deep-anchor">Welcome to Safely Anchored Small School</h3>
+                <div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+                    <p>Safely Anchored is an independent Christian primary school in Sunningdale, Cape Town. Our journey began in 2015 as a dedicated aftercare, and today we extend that same heart-centered care to learners from age 4 through to Grade 7.</p>
+                    <p>We meet our families where they are and walk alongside them. Our approach is rooted in today, knowing there is beauty and wisdom in each phase of development. When content and care are driven with intention, children truly learn to love learning.</p>
+                </div>
+                <div class="pt-8">
+                    <blockquote class="border-l-4 border-secondary pl-8 py-2">
+                        <p class="font-headline-md text-headline-md text-deep-anchor italic leading-relaxed">"Nurturing growth in a secure, loving environment where every child is known by name."</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="rounded-xl overflow-hidden shadow-ambient border border-outline-variant/20 bg-surface-container-low">
+                    <img alt="Students at Safely Anchored" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VxKFt4gsgGGXwuxtUC-Vldwkd6PKnwemJXPiZJbFdKFyrVmipTjEIiGDEFobHkOYIQ8ch0gILLY0IYzuLvnHpaoO1RfGeZPYPV0hXfw1-fjTfKCRk6NZqULt0oszAnEBU9TSiUuGuZZ_RTv-SsCN_pYs3dgQFfHFtxKuh1IMT-h-rNI6qunttW2U8a1PmcB1ia8F7LQnp3Ts93gdOmWM-o6mwX_urqhqe8WKlKn5Xk3OVMv7F9zClBMxQ">
+                </div>
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary-fixed opacity-20 rounded-full -z-10"></div>
+                <div class="absolute -top-4 -right-4 w-32 h-32 bg-primary-fixed opacity-10 rounded-full -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More than the classroom -->
+    <section class="py-20 bg-surface-container-low" id="curriculum">
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary relative inline-block">
+                        More than the classroom
+                        <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">A balanced approach combining rigorous academics with physical and holistic development, delivered by our team of qualified teachers.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- CAPS Curriculum Card -->
+                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
+                        <span class="material-symbols-outlined text-coastal-white" data-icon="menu_book">menu_book</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">CAPS Curriculum</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">Delivering the national curriculum with personalized attention and Christian values woven throughout.</p>
+                </div>
+                <!-- Active Sports Card -->
+                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
+                        <span class="material-symbols-outlined text-coastal-white" data-icon="sports_soccer">sports_soccer</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Active Sports</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">Structured physical education including mini-rugby and soccer to build teamwork and gross motor skills.</p>
+                </div>
+                <!-- Cape Kinetics Card -->
+                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
+                        <span class="material-symbols-outlined text-coastal-white" data-icon="fitness_center">fitness_center</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Cape Kinetics</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">Specialized kinetics program designed to enhance coordination, core strength, and developmental milestones.</p>
+                </div>
+                <!-- Aftercare & Transport Card -->
+                <div class="bg-coastal-white rounded-lg p-6 shadow-sm border border-outline-variant/30 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-primary-container">
+                        <span class="material-symbols-outlined text-coastal-white" data-icon="directions_bus">directions_bus</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Aftercare &amp; Transport</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">Safe, supervised aftercare facilities and reliable transport options to support working parents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Enrolment Works -->
+    <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="enrolment">
+        <h2 class="font-headline-lg text-headline-lg text-center text-primary mb-16 relative inline-block left-1/2 -translate-x-1/2">
+            How Enrolment Works
+            <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+        </h2>
+        <div class="relative">
+            <!-- Connecting Line -->
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 -translate-y-1/2 z-0"></div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="font-headline-md text-primary">1</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Trial Day</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">Your child spends a day with us to experience our environment and interact with peers.</p>
+                </div>
+                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="font-headline-md text-primary">2</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Honest Feedback</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">We provide open communication about whether our school is the best fit for your child's needs.</p>
+                </div>
+                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-coastal-white border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="font-headline-md text-primary">3</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Acceptance Letter</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">If it's a great match, you'll receive a formal offer of placement for your child.</p>
+                </div>
+                <div class="bg-coastal-white md:bg-transparent rounded-lg md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-outline-variant/20 md:border-none flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary border-4 border-primary-fixed-dim flex items-center justify-center mb-4 shadow-sm relative">
+                        <span class="material-symbols-outlined text-coastal-white icon-filled" data-icon="anchor">anchor</span>
+                    </div>
+                    <h4 class="font-headline-md text-lg text-deep-anchor mb-2">Confirmation</h4>
+                    <p class="font-body-md text-sm text-on-surface-variant">Complete the enrolment paperwork and officially join the Safely Anchored family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees 2025 -->
+    <section class="py-20 bg-surface-container-high border-t border-outline-variant/20" id="fees">
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-headline-lg text-headline-lg text-primary relative inline-block">
+                    Fee Structure 2025
+                    <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+                </h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-4">Transparent pricing for peace of mind.</p>
+            </div>
+            <div class="max-w-4xl mx-auto mt-12 overflow-x-auto">
+                <div class="bg-coastal-white rounded-xl shadow-ambient border-2 border-outline-variant/30 min-w-[480px]">
+                    <div class="grid grid-cols-4 text-coastal-white font-headline-md p-4 bg-primary rounded-t-xl">
+                        <div class="col-span-1 text-sm sm:text-base font-bold flex items-center">Grade Level</div>
+                        <div class="col-span-1 text-center text-sm sm:text-base font-bold flex flex-col items-center justify-center">Half Day<span class="text-xs font-normal opacity-80">(Ends 13:00)</span></div>
+                        <div class="col-span-1 text-center text-sm sm:text-base font-bold flex flex-col items-center justify-center">3/4 Day<span class="text-xs font-normal opacity-80">(Ends 15:00)</span></div>
+                        <div class="col-span-1 text-center text-sm sm:text-base font-bold flex flex-col items-center justify-center">Full Day<span class="text-xs font-normal opacity-80">(Ends 17:00)</span></div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b border-outline-variant/20 items-center">
+                        <div class="col-span-1 font-label-lg text-deep-anchor">Pre-Grade R &amp; Grade R-1</div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 3,400<span class="text-xs text-on-surface-variant">/mo</span></div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 3,900<span class="text-xs text-on-surface-variant">/mo</span></div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 4,500<span class="text-xs text-on-surface-variant">/mo</span></div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b border-outline-variant/20 items-center bg-surface-container-lowest">
+                        <div class="col-span-1 font-label-lg text-deep-anchor">Grade 2</div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 3,400<span class="text-xs text-on-surface-variant">/mo</span></div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 3,900<span class="text-xs text-on-surface-variant">/mo</span></div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 4,500<span class="text-xs text-on-surface-variant">/mo</span></div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 items-center">
+                        <div class="col-span-1 font-label-lg text-deep-anchor">Grade 3</div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 3,400<span class="text-xs text-on-surface-variant">/mo</span></div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 3,900<span class="text-xs text-on-surface-variant">/mo</span></div>
+                        <div class="col-span-1 text-center font-body-md text-primary">R 4,500<span class="text-xs text-on-surface-variant">/mo</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 px-4">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span>
+                        <span class="font-label-lg text-on-surface-variant">5% sibling discount on 2nd child</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span>
+                        <span class="font-label-lg text-on-surface-variant">12 monthly instalments (Jan&ndash;Dec)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span>
+                        <span class="font-label-lg text-on-surface-variant">Holiday club included</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span>
+                        <span class="font-label-lg text-on-surface-variant">Transport available on enquiry</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span>
+                        <span class="font-label-lg text-on-surface-variant">One term's written notice required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative">
+        <div class="text-center mb-12 relative z-10">
+            <h2 class="font-headline-lg text-headline-lg text-primary relative inline-block">
+                What other parents say
+                <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+            </h2>
+        </div>
+        <div class="absolute right-0 top-10 text-9xl text-surface-variant/40 font-serif leading-none select-none z-0">&ldquo;</div>
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
+                <p class="font-body-md text-on-surface italic mb-6 mt-2">"The small classes make such a difference. My son comes home happy every day and his confidence has soared since joining safely anchored."</p>
+                <div class="flex items-center gap-3">
+                    <div>
+                        <p class="font-label-lg text-deep-anchor">Lauren Ferguson</p>
+                        <p class="font-label-sm text-outline">Parent of Grade 2 Student</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-coastal-white p-8 rounded-xl shadow-sm border border-outline-variant/20 relative">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-4xl absolute -top-4 -left-2 bg-coastal-white rounded-full p-1" data-icon="format_quote">format_quote</span>
+                <p class="font-body-md text-on-surface italic mb-6 mt-2">"A truly nurturing environment. The teachers know exactly how my daughter is doing academically and emotionally. We couldn't be happier with our choice."</p>
+                <div class="flex items-center gap-3">
+                    <div>
+                        <p class="font-label-lg text-deep-anchor">Carrie-Anne Duvenhage</p>
+                        <p class="font-label-sm text-outline">Parent of Grade R Student</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet our Leadership -->
+    <section class="py-20 bg-surface-container-low" id="leadership">
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-headline-lg text-headline-lg text-primary relative inline-block">
+                    Meet our Leadership
+                    <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Antonie Botha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XivdeOIz5uQ2m5Sdcb50SN_7yU3FjwZwpzuYDIEIWAvq8yW7c13TzBY-yGBffDe8AhoPG4evnqEia5FSMT106umPVS1p1co1awofVnis6eJH6COD2KyCjc9NhsrcpGnfWnSv2-BVDeGINcFPS9dT4wGzTUEtZsXNW9W_NR6dj-jlukT3FC09qbsp002PVg9TyiwUZ0zskDTfynkN4B_89qkB_vbSBV-1rWHLIROAmvNqqsvJfNDFICrKc">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-headline-md text-lg text-deep-anchor">Antonie Botha</h4>
+                        <p class="font-label-sm text-secondary uppercase tracking-wider mt-1">Founder and Finances</p>
+                    </div>
+                </div>
+                <div class="bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Shireen Botha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VEL1M6eNkwn1XY9UVBQtOQ61xeN5_nWpvJqdngYVO6aKYk_DosmCuyIdynq6AB52QDHdmG3aNAKdZbY8hPJREJjlWz84XQ3cv4NALbL_5gTaYDmKqHTK2LvOChZjd3P3FR5HySJoxk3fDM__3e7BRMAvNZALpmUivv3Ty8R0exPPOpvkvOjv8HzEsQAtjHoSiCY-J0jwqG3V-Q-DRSDYGIRkzpxgiPwd6kyhoqB7Wdlo0CVfiid9QDUcw">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-headline-md text-lg text-deep-anchor">Shireen Botha</h4>
+                        <p class="font-label-sm text-secondary uppercase tracking-wider mt-1">Founder and Learner Support</p>
+                    </div>
+                </div>
+                <div class="bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Rouxelle Kahler" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WyxbW7A02AyXUEwKZmr85k6CctRuut7xIvVQtec6j_-jFlbNSqSNQgW_MmBQEOIxkUxQLUZr0t6IuJhNwO5YvWmr6n7Toi3tH8tUvRp8rIH_rot9SDUY_QYyiWOpV354ALXaLmapHiaxWZTV_YMK6pv8GGXS_zFkRwxl-uRoRdYn5KrTEbI-tRSgwHy8kZG19-2CdWfJHsTBmD4JcQYGolDijy50PHn6hCkn8TezuIc0zpc0wju9he7A">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-headline-md text-lg text-deep-anchor">Rouxelle Kahler</h4>
+                        <p class="font-label-sm text-secondary uppercase tracking-wider mt-1">Principal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-primary text-coastal-white relative overflow-hidden" id="contact">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern height="40" id="waves" patternUnits="userSpaceOnUse" width="100">
+                        <path d="M0 20 Q 25 5, 50 20 T 100 20" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    </pattern>
+                </defs>
+                <rect fill="url(#waves)" height="100%" width="100%"></rect>
+            </svg>
+        </div>
+        <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+            <h2 class="font-display-lg text-display-lg mb-6 text-coastal-white relative inline-block">
+                Come see if this is where your child will thrive.
+                <div class="absolute -bottom-2 left-0 w-full h-1 bg-accent-cyan rounded-full"></div>
+            </h2>
+            <p class="font-body-lg text-body-lg text-primary-fixed-dim mb-10 mt-4">Schedule a visit to meet our educators and see our classrooms in action.</p>
+            <a class="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container hover:text-on-secondary-container text-coastal-white font-label-lg text-label-lg px-8 py-4 rounded-DEFAULT transition-all duration-300 shadow-lg border border-secondary-fixed/30 active:scale-95" href="#lead-form">
+                Start Your Enrolment Journey
+                <span class="material-symbols-outlined" data-icon="sailing">sailing</span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-charcoal-ink text-coastal-white w-full py-stack-lg border-t-4 border-secondary">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-12">
+        <div class="md:col-span-1 flex flex-col gap-4">
+            <span class="font-headline-md text-headline-md text-coastal-white">Safely Anchored</span>
+            <p class="font-body-md text-sm text-surface-variant/80 max-w-xs">A small Christian school in Sunningdale where your child is known by name.</p>
+        </div>
+        <div class="md:col-span-1 flex flex-col gap-3">
+            <h4 class="font-label-lg text-secondary font-bold mb-2 uppercase tracking-wider">Contact</h4>
+            <div class="flex items-start gap-2 text-surface-variant/80">
+                <span class="material-symbols-outlined text-sm mt-1" data-icon="location_on">location_on</span>
+                <span class="font-body-md text-sm">12 Leadville Way,<br>Sunningdale</span>
+            </div>
+            <div class="flex items-center gap-2 text-surface-variant/80">
+                <span class="material-symbols-outlined text-sm" data-icon="language">language</span>
+                <a class="font-body-md text-sm hover:text-coastal-white hover:underline transition-all" href="https://www.safelyanchored.co.za" target="_blank" rel="noopener noreferrer">www.safelyanchored.co.za</a>
+            </div>
+        </div>
+        <div class="md:col-span-1 flex flex-col gap-3">
+            <h4 class="font-label-lg text-secondary font-bold mb-2 uppercase tracking-wider">Information</h4>
+            <a class="font-body-md text-sm text-surface-variant/80 hover:text-coastal-white hover:underline transition-all cursor-pointer" href="#">Privacy Policy</a>
+            <a class="font-body-md text-sm text-surface-variant/80 hover:text-coastal-white hover:underline transition-all cursor-pointer" href="#">Terms of Service</a>
+            <a class="font-body-md text-sm text-surface-variant/80 hover:text-coastal-white hover:underline transition-all cursor-pointer" href="#">Campus Safety</a>
+            <a class="font-body-md text-sm text-surface-variant/80 hover:text-coastal-white hover:underline transition-all cursor-pointer" href="#">Accreditation</a>
+        </div>
+        <div class="md:col-span-1 flex flex-col gap-4">
+            <h4 class="font-label-lg text-secondary font-bold mb-2 uppercase tracking-wider">Accreditations</h4>
+            <div class="flex gap-4">
+                <div class="bg-coastal-white/10 p-2 rounded flex items-center justify-center h-12 w-24 border border-secondary/50">
+                    <span class="font-label-sm text-xs font-bold text-center text-secondary">Dept. of Ed</span>
+                </div>
+                <div class="bg-coastal-white/10 p-2 rounded flex items-center justify-center h-12 w-24 border border-secondary/50">
+                    <span class="font-label-sm text-xs font-bold text-center text-secondary">ACSI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-surface-variant/20 pt-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-md text-sm text-surface-variant/60">&copy; 2025 Safely Anchored Small School. Nurturing growth in a secure, loving environment.</p>
+        <p class="font-body-md text-sm text-surface-variant/60">Safely Anchored Small School</p>
+    </div>
+</footer>
+
+<!-- Floating CTA -->
+<a class="fixed bottom-6 right-6 z-50 bg-lighthouse-red text-coastal-white px-6 py-3 rounded-full shadow-ambient hover:scale-105 transition-transform flex items-center gap-2 font-label-lg" href="#lead-form">
+    <span class="material-symbols-outlined text-sm" data-icon="school">school</span>
+    Now Enrolling for 2026
+</a>
+
+<!-- Mobile Menu Toggle -->
+<script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        var menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    });
+</script>
+</body>
+</html>
