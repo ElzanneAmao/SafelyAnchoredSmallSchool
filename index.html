@@ -315,32 +315,38 @@
 
     <!-- Credibility Bar with logos -->
     <div class="bg-primary-container text-on-primary-container py-5">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
             <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-secondary icon-filled text-xl" data-icon="verified">verified</span>
                 <p class="font-body-md text-sm md:text-base font-medium">
-                    Fully registered with the Department of Education and an active member of ACSI
+                    Fully registered &amp; accredited
                 </p>
             </div>
-            <div class="flex items-center gap-4">
-                <!-- Dept of Basic Education badge -->
-                <div class="bg-coastal-white/15 backdrop-blur-sm rounded px-3 py-1.5 flex items-center gap-2 border border-coastal-white/20">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7v4c0 5.55 4.08 10.74 10 12 5.92-1.26 10-6.45 10-12V7L12 2z" fill="#C99F60" fill-opacity="0.3" stroke="#C99F60" stroke-width="1.2"/>
-                        <path d="M12 6l-4 2v3c0 2.8 1.7 5.4 4 6 2.3-.6 4-3.2 4-6V8l-4-2z" fill="#C99F60" fill-opacity="0.5"/>
-                        <path d="M11 10h2v3h-2z M11 14h2v1.5h-2z" fill="white"/>
+            <div class="flex items-center gap-5">
+                <!-- DBE logo (white) -->
+                <div class="flex items-center gap-2 opacity-90">
+                    <svg width="28" height="28" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Department of Basic Education">
+                        <path d="M30 4L28 6l-6-1-2 3-6 1-1 4-5 3v5l-4 4 2 5-2 5 4 4v5l5 3 1 4 6 1 2 3 6-1 2 2 2-2 6 1 2-3 6-1 1-4 5-3v-5l4-4-2-5 2-5-4-4v-5l-5-3-1-4-6-1-2-3-6 1z" fill="white" fill-opacity="0.15" stroke="white" stroke-width="1"/>
+                        <path d="M30 12c-10 0-16 7-16 14v2c0 2 1 4 3 5l3 2v4l4 2h12l4-2v-4l3-2c2-1 3-3 3-5v-2c0-7-6-14-16-14z" fill="white" fill-opacity="0.2"/>
+                        <path d="M24 28c0 0 2 5 6 5s6-5 6-5" stroke="white" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                        <circle cx="25" cy="24" r="1.5" fill="white"/>
+                        <circle cx="35" cy="24" r="1.5" fill="white"/>
+                        <path d="M30 8l-2 4h4l-2-4z" fill="white" fill-opacity="0.6"/>
+                        <path d="M20 35l-3 6h26l-3-6" stroke="white" stroke-width="0.8" fill="white" fill-opacity="0.1"/>
+                        <path d="M22 44c3 2 5 3 8 3s5-1 8-3" stroke="white" stroke-width="0.8" fill="none"/>
                     </svg>
-                    <span class="font-label-sm text-xs text-coastal-white font-bold whitespace-nowrap">Dept. of Education</span>
+                    <span class="font-label-sm text-xs text-coastal-white/90 font-bold hidden sm:inline">Dept. of Basic Education</span>
                 </div>
-                <!-- ACSI badge -->
-                <div class="bg-coastal-white/15 backdrop-blur-sm rounded px-3 py-1.5 flex items-center gap-2 border border-coastal-white/20">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" fill="#C99F60" fill-opacity="0.3" stroke="#C99F60" stroke-width="1.2"/>
-                        <path d="M7 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="white" stroke-width="1.2" fill="none"/>
-                        <path d="M12 8V5M9 9L7 7M15 9l2-2" stroke="white" stroke-width="1" stroke-linecap="round"/>
-                        <rect x="10" y="13" width="4" height="5" rx="0.5" fill="white" fill-opacity="0.8"/>
+                <div class="w-px h-6 bg-coastal-white/20"></div>
+                <!-- ACSI logo (white) -->
+                <div class="flex items-center gap-2 opacity-90">
+                    <svg width="64" height="22" viewBox="0 0 130 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ACSI">
+                        <path d="M13.5 34H3L18 6h5l15 28H28l-2.8-6H16.3l-2.8 6zm5.5-11.5L22.5 15l-3.5 7.5h7z" fill="white"/>
+                        <path d="M53.5 30.5c-2.5 2.5-5.8 4-9.8 4-8 0-13.5-6-13.5-14.2S35.7 6 43.7 6c3.8 0 7 1.3 9.3 3.5l-4.5 4.5c-1.3-1.3-3-2-4.8-2-4.5 0-7.5 3.2-7.5 8.3s3 8.3 7.5 8.3c2 0 3.7-.8 5-2.1l4.8 4z" fill="white"/>
+                        <path d="M60 28.5l4.5-4.5c2 2.3 5 3.5 7.8 3.5 2.5 0 4-1 4-2.5 0-1.8-2-2.3-5.5-3.2-5-1.3-10-3-10-8.8 0-5.5 4.5-9 10.5-9 4.5 0 8.2 1.5 10.8 4.2l-4.3 4.3c-1.8-1.8-4.2-2.8-6.5-2.8-2 0-3.3.8-3.3 2.2 0 1.5 1.8 2 5 2.8 5.2 1.3 10.5 3 10.5 9 0 6-4.8 9.5-11 9.5-5 0-9.3-1.8-12.5-4.7z" fill="white"/>
+                        <path d="M88 6.5h7.5V34H88V6.5z" fill="white"/>
+                        <path d="M108 7c0 0 4 1 6 5 1.5-5 5-10 5-10s-1 8-3 12c2.5-2 7-3 7-3s-5 3.5-7 7c1 1 2 3 2 3s-3-2-4.5-2.5c-1 3-3 7-5.5 10 0 0 1-5 1.5-8.5-2 1-5 4-5 4s2.5-4 4.5-6.5c-2-.5-5 .5-5 .5s4-2 6-2c.5-3-.5-7-2-9z" fill="white" fill-opacity="0.9"/>
                     </svg>
-                    <span class="font-label-sm text-xs text-coastal-white font-bold whitespace-nowrap">ACSI Member</span>
                 </div>
             </div>
         </div>
@@ -716,26 +722,32 @@
         </div>
         <div class="md:col-span-1 flex flex-col gap-4">
             <h4 class="font-label-lg text-secondary font-bold mb-2 uppercase tracking-wider">Accreditations</h4>
-            <div class="flex gap-4 items-center">
-                <!-- DBE Logo placeholder -->
-                <a href="https://www.education.gov.za/" target="_blank" rel="noopener noreferrer" class="bg-coastal-white/10 hover:bg-coastal-white/20 transition-colors p-3 rounded-lg flex items-center justify-center border border-coastal-white/10" title="Department of Basic Education">
-                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="1" y="1" width="46" height="34" rx="4" fill="none" stroke="#C99F60" stroke-width="1"/>
-                        <path d="M24 5L14 10v6c0 7 4.3 13.5 10 15 5.7-1.5 10-8 10-15v-6L24 5z" fill="#C99F60" fill-opacity="0.25" stroke="#C99F60" stroke-width="0.8"/>
-                        <path d="M24 9l-6 3v4c0 4.5 2.6 8.7 6 9.7 3.4-1 6-5.2 6-9.7v-4l-6-3z" fill="#C99F60" fill-opacity="0.4"/>
-                        <path d="M22.5 14h3v4h-3zM22.5 19.5h3v2h-3z" fill="white" fill-opacity="0.9"/>
-                        <text x="24" y="33" text-anchor="middle" fill="#C99F60" font-family="Quicksand,sans-serif" font-size="4" font-weight="600">DBE</text>
+            <div class="flex flex-col gap-4">
+                <!-- DBE Logo -->
+                <a href="https://www.education.gov.za/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity" title="Department of Basic Education - Republic of South Africa">
+                    <svg width="32" height="32" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 4L28 6l-6-1-2 3-6 1-1 4-5 3v5l-4 4 2 5-2 5 4 4v5l5 3 1 4 6 1 2 3 6-1 2 2 2-2 6 1 2-3 6-1 1-4 5-3v-5l4-4-2-5 2-5-4-4v-5l-5-3-1-4-6-1-2-3-6 1z" fill="white" fill-opacity="0.1" stroke="white" stroke-width="1"/>
+                        <path d="M30 12c-10 0-16 7-16 14v2c0 2 1 4 3 5l3 2v4l4 2h12l4-2v-4l3-2c2-1 3-3 3-5v-2c0-7-6-14-16-14z" fill="white" fill-opacity="0.15"/>
+                        <path d="M24 28c0 0 2 5 6 5s6-5 6-5" stroke="white" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                        <circle cx="25" cy="24" r="1.5" fill="white"/>
+                        <circle cx="35" cy="24" r="1.5" fill="white"/>
+                        <path d="M30 8l-2 4h4l-2-4z" fill="white" fill-opacity="0.5"/>
+                        <path d="M20 35l-3 6h26l-3-6" stroke="white" stroke-width="0.8" fill="white" fill-opacity="0.08"/>
+                        <path d="M22 44c3 2 5 3 8 3s5-1 8-3" stroke="white" stroke-width="0.8" fill="none"/>
                     </svg>
+                    <div class="flex flex-col">
+                        <span class="font-label-sm text-xs text-coastal-white/80 leading-tight">Dept. of Basic Education</span>
+                        <span class="font-label-sm text-[10px] text-coastal-white/50 leading-tight">Republic of South Africa</span>
+                    </div>
                 </a>
-                <!-- ACSI Logo placeholder -->
-                <a href="https://www.acsi.org/" target="_blank" rel="noopener noreferrer" class="bg-coastal-white/10 hover:bg-coastal-white/20 transition-colors p-3 rounded-lg flex items-center justify-center border border-coastal-white/10" title="Association of Christian Schools International">
-                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="1" y="1" width="46" height="34" rx="4" fill="none" stroke="#C99F60" stroke-width="1"/>
-                        <circle cx="24" cy="15" r="9" fill="#C99F60" fill-opacity="0.25" stroke="#C99F60" stroke-width="0.8"/>
-                        <path d="M18 19c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="white" stroke-width="0.8" fill="none" stroke-opacity="0.8"/>
-                        <path d="M24 12V9M20 13l-2-2M28 13l2-2" stroke="white" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.8"/>
-                        <rect x="22" y="17" width="4" height="5" rx="0.5" fill="white" fill-opacity="0.7"/>
-                        <text x="24" y="33" text-anchor="middle" fill="#C99F60" font-family="Quicksand,sans-serif" font-size="4" font-weight="600">ACSI</text>
+                <!-- ACSI Logo -->
+                <a href="https://www.acsi.org/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity" title="Association of Christian Schools International">
+                    <svg width="72" height="24" viewBox="0 0 130 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 34H3L18 6h5l15 28H28l-2.8-6H16.3l-2.8 6zm5.5-11.5L22.5 15l-3.5 7.5h7z" fill="white"/>
+                        <path d="M53.5 30.5c-2.5 2.5-5.8 4-9.8 4-8 0-13.5-6-13.5-14.2S35.7 6 43.7 6c3.8 0 7 1.3 9.3 3.5l-4.5 4.5c-1.3-1.3-3-2-4.8-2-4.5 0-7.5 3.2-7.5 8.3s3 8.3 7.5 8.3c2 0 3.7-.8 5-2.1l4.8 4z" fill="white"/>
+                        <path d="M60 28.5l4.5-4.5c2 2.3 5 3.5 7.8 3.5 2.5 0 4-1 4-2.5 0-1.8-2-2.3-5.5-3.2-5-1.3-10-3-10-8.8 0-5.5 4.5-9 10.5-9 4.5 0 8.2 1.5 10.8 4.2l-4.3 4.3c-1.8-1.8-4.2-2.8-6.5-2.8-2 0-3.3.8-3.3 2.2 0 1.5 1.8 2 5 2.8 5.2 1.3 10.5 3 10.5 9 0 6-4.8 9.5-11 9.5-5 0-9.3-1.8-12.5-4.7z" fill="white"/>
+                        <path d="M88 6.5h7.5V34H88V6.5z" fill="white"/>
+                        <path d="M108 7c0 0 4 1 6 5 1.5-5 5-10 5-10s-1 8-3 12c2.5-2 7-3 7-3s-5 3.5-7 7c1 1 2 3 2 3s-3-2-4.5-2.5c-1 3-3 7-5.5 10 0 0 1-5 1.5-8.5-2 1-5 4-5 4s2.5-4 4.5-6.5c-2-.5-5 .5-5 .5s4-2 6-2c.5-3-.5-7-2-9z" fill="white" fill-opacity="0.9"/>
                     </svg>
                 </a>
             </div>
