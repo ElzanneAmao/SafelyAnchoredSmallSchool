@@ -184,6 +184,26 @@
             }
         }
 
+        /* Staff card hover quote */
+        .staff-card {
+            position: relative;
+        }
+        .staff-card .staff-quote {
+            position: absolute;
+            inset: 0;
+            background: rgba(14, 59, 92, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: inherit;
+        }
+        .staff-card:hover .staff-quote {
+            opacity: 1;
+        }
+
         /* CTA shimmer */
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
@@ -214,7 +234,7 @@
             <img alt="Safely Anchored Logo" class="h-12 w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1VeqGSOEvBmRGaeq-36iv1LjknUwgiXaRTHH9HP6niERg9NWNmVliFudcqIp016h1Wqg1Ic5zzWuWjBnNifXXfhnXEeAExrhYWeXg0bxSybgwuEVnYHhFPh7R1Yt9xVrZkqmBf59SiRVu6RNdTcidObyoP_tcHoLbVM0VvusbJBQjK4-v1QW3IiZPOHEsSP5_mQL_lHmzRYXYDM-zIWhm7fymfv134r8OiTeWVsX4sI3zaByIMTfrjuLA">
             <span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Safely Anchored Small School</span>
         </a>
-        <a class="bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT transition-all duration-300 active:scale-95 shadow-ambient" href="#lead-form">Apply Now</a>
+        <a class="bg-secondary hover:bg-secondary/80 text-deep-anchor font-label-lg text-label-lg px-6 py-3 rounded-DEFAULT transition-all duration-300 active:scale-95 shadow-ambient" href="#lead-form">Apply Now</a>
     </div>
 </nav>
 
@@ -610,27 +630,36 @@
                 </h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all">
-                    <div class="aspect-square overflow-hidden">
+                <div class="staff-card bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all cursor-pointer">
+                    <div class="aspect-square overflow-hidden relative">
                         <img alt="Antonie Botha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XivdeOIz5uQ2m5Sdcb50SN_7yU3FjwZwpzuYDIEIWAvq8yW7c13TzBY-yGBffDe8AhoPG4evnqEia5FSMT106umPVS1p1co1awofVnis6eJH6COD2KyCjc9NhsrcpGnfWnSv2-BVDeGINcFPS9dT4wGzTUEtZsXNW9W_NR6dj-jlukT3FC09qbsp002PVg9TyiwUZ0zskDTfynkN4B_89qkB_vbSBV-1rWHLIROAmvNqqsvJfNDFICrKc">
+                        <div class="staff-quote">
+                            <p class="text-coastal-white text-center font-body-md italic text-sm leading-relaxed">"Every child deserves a safe harbour to grow from. We built this school so families could have a place where faith, love, and learning come together."</p>
+                        </div>
                     </div>
                     <div class="p-6 text-center">
                         <h4 class="font-headline-md text-lg text-deep-anchor">Antonie Botha</h4>
                         <p class="font-label-sm text-secondary uppercase tracking-wider mt-1">Founder and Finances</p>
                     </div>
                 </div>
-                <div class="bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all">
-                    <div class="aspect-square overflow-hidden">
+                <div class="staff-card bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all cursor-pointer">
+                    <div class="aspect-square overflow-hidden relative">
                         <img alt="Shireen Botha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VEL1M6eNkwn1XY9UVBQtOQ61xeN5_nWpvJqdngYVO6aKYk_DosmCuyIdynq6AB52QDHdmG3aNAKdZbY8hPJREJjlWz84XQ3cv4NALbL_5gTaYDmKqHTK2LvOChZjd3P3FR5HySJoxk3fDM__3e7BRMAvNZALpmUivv3Ty8R0exPPOpvkvOjv8HzEsQAtjHoSiCY-J0jwqG3V-Q-DRSDYGIRkzpxgiPwd6kyhoqB7Wdlo0CVfiid9QDUcw">
+                        <div class="staff-quote">
+                            <p class="text-coastal-white text-center font-body-md italic text-sm leading-relaxed">"Seeing a child who was struggling suddenly light up with confidence — that's why I'm here. Every learner deserves someone in their corner."</p>
+                        </div>
                     </div>
                     <div class="p-6 text-center">
                         <h4 class="font-headline-md text-lg text-deep-anchor">Shireen Botha</h4>
                         <p class="font-label-sm text-secondary uppercase tracking-wider mt-1">Founder and Learner Support</p>
                     </div>
                 </div>
-                <div class="bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all">
-                    <div class="aspect-square overflow-hidden">
+                <div class="staff-card bg-coastal-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-ambient transition-all cursor-pointer">
+                    <div class="aspect-square overflow-hidden relative">
                         <img alt="Rouxelle Kahler" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WyxbW7A02AyXUEwKZmr85k6CctRuut7xIvVQtec6j_-jFlbNSqSNQgW_MmBQEOIxkUxQLUZr0t6IuJhNwO5YvWmr6n7Toi3tH8tUvRp8rIH_rot9SDUY_QYyiWOpV354ALXaLmapHiaxWZTV_YMK6pv8GGXS_zFkRwxl-uRoRdYn5KrTEbI-tRSgwHy8kZG19-2CdWfJHsTBmD4JcQYGolDijy50PHn6hCkn8TezuIc0zpc0wju9he7A">
+                        <div class="staff-quote">
+                            <p class="text-coastal-white text-center font-body-md italic text-sm leading-relaxed">"I love that we know every child by name. In a small school, we can truly meet each learner where they are and help them flourish."</p>
+                        </div>
                     </div>
                     <div class="p-6 text-center">
                         <h4 class="font-headline-md text-lg text-deep-anchor">Rouxelle Kahler</h4>
@@ -675,7 +704,7 @@
                 <p class="font-body-lg text-body-lg text-coastal-white/70 mb-10 max-w-xl mx-auto">
                     Schedule a visit to meet our educators and see our classrooms in action.
                 </p>
-                <a class="cta-btn-shimmer inline-flex items-center justify-center gap-3 bg-lighthouse-red text-coastal-white hover:bg-secondary hover:text-deep-anchor font-label-lg text-label-lg px-10 py-5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 group" href="#lead-form">
+                <a class="cta-btn-shimmer inline-flex items-center justify-center gap-3 bg-secondary text-deep-anchor hover:bg-secondary/80 font-label-lg text-label-lg px-10 py-5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 group" href="#lead-form">
                     Start Your Enrolment Journey
                     <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="sailing">sailing</span>
                 </a>
@@ -723,14 +752,10 @@
             </div>
         </div>
     </div>
-    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-surface-variant/20 pt-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="font-body-md text-sm text-surface-variant/60">&copy; 2025 Safely Anchored Small School. Nurturing growth in a secure, loving environment.</p>
-        <p class="font-body-md text-sm text-surface-variant/60">Safely Anchored Small School</p>
-    </div>
 </footer>
 
 <!-- Floating CTA -->
-<a class="fixed bottom-6 right-6 z-50 bg-lighthouse-red text-coastal-white px-6 py-3 rounded-full shadow-ambient hover:scale-105 transition-transform flex items-center gap-2 font-label-lg" href="#lead-form">
+<a class="fixed bottom-6 right-6 z-50 bg-secondary text-deep-anchor px-6 py-3 rounded-full shadow-ambient hover:scale-105 hover:bg-secondary/80 transition-all flex items-center gap-2 font-label-lg" href="#lead-form">
     <span class="material-symbols-outlined text-sm" data-icon="school">school</span>
     Now Enrolling for 2027
 </a>
