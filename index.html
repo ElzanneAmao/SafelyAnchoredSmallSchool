@@ -204,6 +204,18 @@
             opacity: 1;
         }
 
+        /* About section image slider */
+        .about-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .about-slide.active {
+            position: relative;
+            opacity: 1;
+        }
+
         /* CTA shimmer */
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
@@ -243,7 +255,7 @@
     <section class="relative min-h-[90vh] flex items-center justify-center pt-8 pb-16 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-[#1B313F]/85 via-[#1B313F]/70 to-[#1B6CA8]/50 z-10"></div>
-            <img alt="Happy students at Safely Anchored Small School" class="w-full h-full object-cover object-top" src="assets/Lead LP Hero image.webp">
+            <img alt="Happy students at Safely Anchored Small School" class="w-full h-full object-cover object-top" src="assets/Safely Anchored Small School Founders Hero Image.webp">
         </div>
         <div class="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
             <div class="col-span-1 lg:col-span-7 space-y-stack-md lg:pr-12">
@@ -343,12 +355,12 @@
                 </p>
             </div>
             <div class="flex items-center gap-6">
-                <a href="https://www.education.gov.za/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity" title="Department of Basic Education">
-                    <img src="assets/logo-dbe.png" alt="Department of Basic Education" class="h-10 w-auto">
+                <a href="https://www.education.gov.za/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity" title="Western Cape Government">
+                    <img src="assets/WCG Logo.png" alt="Western Cape Government" class="h-10 w-auto">
                 </a>
                 <div class="w-px h-8 bg-outline-variant/40"></div>
                 <a href="https://www.acsi.org/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity" title="ACSI">
-                    <img src="assets/logo-acsi.png" alt="ACSI - Association of Christian Schools International" class="h-8 w-auto">
+                    <img src="assets/ACSI Logo.png" alt="ACSI - Association of Christian Schools International" class="h-8 w-auto">
                 </a>
             </div>
         </div>
@@ -376,8 +388,10 @@
                 </div>
             </div>
             <div class="relative">
-                <div class="rounded-xl overflow-hidden shadow-ambient border border-outline-variant/20 bg-surface-container-low">
-                    <img alt="Students at Safely Anchored" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VxKFt4gsgGGXwuxtUC-Vldwkd6PKnwemJXPiZJbFdKFyrVmipTjEIiGDEFobHkOYIQ8ch0gILLY0IYzuLvnHpaoO1RfGeZPYPV0hXfw1-fjTfKCRk6NZqULt0oszAnEBU9TSiUuGuZZ_RTv-SsCN_pYs3dgQFfHFtxKuh1IMT-h-rNI6qunttW2U8a1PmcB1ia8F7LQnp3Ts93gdOmWM-o6mwX_urqhqe8WKlKn5Xk3OVMv7F9zClBMxQ">
+                <div class="rounded-xl overflow-hidden shadow-ambient border border-outline-variant/20 bg-surface-container-low relative" id="about-slider">
+                    <img alt="Students at Safely Anchored - 1" class="w-full h-auto object-cover about-slide active" src="assets/Safely Anchored Small School Founders Slide 1.jpg">
+                    <img alt="Students at Safely Anchored - 2" class="w-full h-auto object-cover about-slide" src="assets/Safely Anchored Small School Founders Slide 2.jpg">
+                    <img alt="Students at Safely Anchored - 3" class="w-full h-auto object-cover about-slide" src="assets/Safely Anchored Small School Founders Slide 3.jpg">
                 </div>
                 <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary-fixed opacity-20 rounded-full -z-10"></div>
                 <div class="absolute -top-4 -right-4 w-32 h-32 bg-primary-fixed opacity-10 rounded-full -z-10"></div>
@@ -680,7 +694,7 @@
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div class="rounded-xl overflow-hidden shadow-ambient border border-outline-variant/20">
-                        <img alt="Shireen and Antonie Botha, Founders of Safely Anchored" class="w-full h-auto object-cover" src="assets/founders(1).jpg">
+                        <img alt="Shireen and Antonie Botha, Founders of Safely Anchored" class="w-full h-auto object-cover" src="assets/Safely Anchored Small School Founders.jpg">
                     </div>
                     <div class="space-y-6">
                         <blockquote class="border-l-4 border-secondary pl-6">
@@ -762,16 +776,16 @@
             <div class="flex flex-col gap-3">
                 <div class="flex items-center gap-3 bg-coastal-white/10 rounded-DEFAULT px-3 py-2">
                     <div class="bg-white rounded-sm p-1.5 flex items-center justify-center shrink-0">
-                        <img src="assets/logo-dbe.png" alt="DBE" class="h-7 w-auto">
+                        <img src="assets/WCG Logo.png" alt="WCG" class="h-7 w-auto">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-label-sm text-xs text-coastal-white/80 leading-tight">Dept. of Basic Education</span>
-                        <span class="font-label-sm text-[10px] text-coastal-white/50 leading-tight">Republic of South Africa</span>
+                        <span class="font-label-sm text-xs text-coastal-white/80 leading-tight">Western Cape Government</span>
+                        <span class="font-label-sm text-[10px] text-coastal-white/50 leading-tight">Registered Independent School</span>
                     </div>
                 </div>
                 <div class="flex items-center gap-3 bg-coastal-white/10 rounded-DEFAULT px-3 py-2">
                     <div class="bg-white rounded-sm p-1.5 flex items-center justify-center shrink-0">
-                        <img src="assets/logo-acsi.png" alt="ACSI" class="h-5 w-auto">
+                        <img src="assets/ACSI Logo.png" alt="ACSI" class="h-5 w-auto">
                     </div>
                     <span class="font-label-sm text-xs text-coastal-white/80 leading-tight">ACSI Accredited</span>
                 </div>
@@ -840,6 +854,17 @@
         });
 
         buildDots();
+    })();
+
+    // About section image slider
+    (function() {
+        var slides = document.querySelectorAll('#about-slider .about-slide');
+        var current = 0;
+        setInterval(function() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 4000);
     })();
 </script>
 </body>
