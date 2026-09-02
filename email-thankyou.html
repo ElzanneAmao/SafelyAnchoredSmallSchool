@@ -1,0 +1,86 @@
+<!--
+  THANK YOU EMAIL — for Google Apps Script
+  Copy the HTML between the COPY START and COPY END comments
+  into your Apps Script GmailApp.sendEmail() htmlBody parameter.
+
+  Replace placeholders:
+  " + data.parentName + "  →  parent's name from form
+  " + data.childName + "   →  child's name from form
+-->
+
+<!-- COPY START -->
+<div style="margin:0;padding:0;background-color:#f5f3ee;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f5f3ee;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;">
+
+          <!-- Header with logo -->
+          <tr>
+            <td align="center" style="padding:24px 40px;background-color:#1B313F;border-radius:12px 12px 0 0;">
+              <img src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Lead LP Logo.webp" alt="Safely Anchored Small School" width="60" height="60" style="display:block;width:60px;height:60px;object-fit:contain;">
+              <p style="margin:12px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Safely Anchored Small School</p>
+            </td>
+          </tr>
+
+          <!-- Gold accent line -->
+          <tr>
+            <td style="height:4px;background-color:#C99F60;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="background-color:#ffffff;padding:40px 40px 32px;">
+
+              <!-- Greeting -->
+              <p style="margin:0 0 24px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:700;color:#0E3B5C;line-height:1.3;">
+                Dear " + data.parentName + "
+              </p>
+
+              <!-- Body text -->
+              <p style="margin:0 0 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#414750;line-height:1.6;">
+                Thank you for your interest in enrolling " + data.childName + " at Safely Anchored Small School.
+              </p>
+
+              <p style="margin:0 0 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#414750;line-height:1.6;">
+                Our receptionist, Ansun&eacute;, will reach out to you shortly to arrange a time to view the school and see if this could be a place where your child thrives.
+              </p>
+
+              <p style="margin:0 0 32px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#414750;line-height:1.6;">
+                We look forward to meeting you!
+              </p>
+
+              <!-- Divider -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td style="height:1px;background-color:#e4e2dd;font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+
+              <!-- Sign-off -->
+              <p style="margin:24px 0 4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:600;color:#0E3B5C;line-height:1.4;">
+                The Safely Anchored Small School Team
+              </p>
+              <p style="margin:0 0 4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;color:#717881;line-height:1.5;">
+                Tel: <a href="tel:0817856899" style="color:#005387;text-decoration:none;">081 785 6899</a>
+              </p>
+              <p style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;color:#717881;line-height:1.5;">
+                12 Leadville Way, Sunningdale
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="background-color:#1B313F;padding:20px 40px;border-radius:0 0 12px 12px;">
+              <a href="https://www.safelyanchored.co.za" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#9acbff;text-decoration:none;">www.safelyanchored.co.za</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- COPY END -->
