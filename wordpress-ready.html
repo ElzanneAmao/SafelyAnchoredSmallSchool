@@ -1,0 +1,1184 @@
+<!--
+  SAFELY ANCHORED - WORDPRESS-READY VERSION
+  ==========================================
+  HOW TO USE:
+  1. In WordPress, create a new Page
+  2. In Elementor, set Page Layout to "Elementor Canvas" (removes theme header/footer/sidebar)
+  3. Drag in ONE "HTML" widget (under General)
+  4. Paste this ENTIRE file into the HTML widget
+  5. Save & publish
+
+  All images point to GitHub Pages so they load anywhere.
+  All CSS is scoped inside #sa-landing to avoid WordPress theme conflicts.
+-->
+
+<!-- External resources -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   SCOPED RESET — prevents WordPress theme CSS
+   from leaking into our landing page
+   ============================================ */
+#sa-landing,
+#sa-landing *,
+#sa-landing *::before,
+#sa-landing *::after {
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    border: 0 solid #e5e7eb;
+}
+
+#sa-landing {
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    color: #1b1c19 !important;
+    background: #fbf9f4 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+#sa-landing img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    border: none !important;
+}
+
+#sa-landing a { color: inherit; text-decoration: none; }
+#sa-landing button { cursor: pointer; background: none; border: none; font-family: inherit; }
+#sa-landing h1, #sa-landing h2, #sa-landing h3, #sa-landing h4, #sa-landing h5, #sa-landing h6 {
+    margin: 0 !important; padding: 0 !important; border: none !important;
+    font-weight: inherit; font-size: inherit; line-height: inherit;
+}
+#sa-landing p { margin: 0 !important; padding: 0 !important; }
+#sa-landing ul, #sa-landing ol { list-style: none; margin: 0; padding: 0; }
+#sa-landing table { border-collapse: collapse; border-spacing: 0; }
+#sa-landing input, #sa-landing select, #sa-landing textarea {
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-size: 16px; line-height: 24px;
+}
+#sa-landing ::selection { background: #1b6ca8; color: #d9e9ff; }
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+    --sa-primary: #005387;
+    --sa-primary-container: #1b6ca8;
+    --sa-primary-fixed: #cfe5ff;
+    --sa-primary-fixed-dim: #9acbff;
+    --sa-on-primary: #ffffff;
+    --sa-secondary: #C99F60;
+    --sa-secondary-fixed: #ffddb0;
+    --sa-deep-anchor: #0E3B5C;
+    --sa-accent-cyan: #22B3E0;
+    --sa-lighthouse-red: #D62828;
+    --sa-surface: #fbf9f4;
+    --sa-surface-container: #f0eee9;
+    --sa-surface-container-low: #f5f3ee;
+    --sa-surface-container-high: #eae8e3;
+    --sa-surface-container-lowest: #ffffff;
+    --sa-surface-variant: #e4e2dd;
+    --sa-on-surface: #1b1c19;
+    --sa-on-surface-variant: #414750;
+    --sa-outline: #717881;
+    --sa-outline-variant: #c0c7d1;
+    --sa-coastal-white: #FFFFFF;
+    --sa-dark-blue: #1B313F;
+    --sa-tertiary-container: #007190;
+    --sa-shadow-ambient: 0 4px 12px rgba(27, 108, 168, 0.08);
+    --sa-shadow-ambient-hover: 0 8px 24px rgba(27, 108, 168, 0.12);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+#sa-landing .sa-font-display-lg { font-family: 'Quicksand', sans-serif !important; font-size: 48px !important; line-height: 56px !important; letter-spacing: -0.02em; font-weight: 700 !important; }
+#sa-landing .sa-font-headline-lg { font-family: 'Quicksand', sans-serif !important; font-size: 32px !important; line-height: 40px !important; font-weight: 600 !important; }
+#sa-landing .sa-font-headline-md { font-family: 'Quicksand', sans-serif !important; font-size: 24px !important; line-height: 32px !important; font-weight: 600 !important; }
+#sa-landing .sa-font-body-lg { font-family: 'Libre Franklin', sans-serif !important; font-size: 18px !important; line-height: 28px !important; font-weight: 400 !important; }
+#sa-landing .sa-font-body-md { font-family: 'Libre Franklin', sans-serif !important; font-size: 16px !important; line-height: 24px !important; font-weight: 400 !important; }
+#sa-landing .sa-font-label-lg { font-family: 'Quicksand', sans-serif !important; font-size: 14px !important; line-height: 20px !important; letter-spacing: 0.05em; font-weight: 700 !important; }
+#sa-landing .sa-font-label-sm { font-family: 'Quicksand', sans-serif !important; font-size: 12px !important; line-height: 16px !important; font-weight: 500 !important; }
+
+@media (max-width: 767px) {
+    #sa-landing .sa-font-display-lg { font-size: 28px !important; line-height: 36px !important; }
+    #sa-landing .sa-font-headline-lg { font-size: 26px !important; line-height: 34px !important; }
+}
+
+/* ============================================
+   MATERIAL SYMBOLS
+   ============================================ */
+#sa-landing .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+#sa-landing .sa-icon-filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ============================================
+   LAYOUT HELPERS
+   ============================================ */
+#sa-landing .sa-container {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+@media (min-width: 768px) {
+    #sa-landing .sa-container {
+        padding-left: 48px !important;
+        padding-right: 48px !important;
+    }
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+#sa-landing .sa-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 249, 244, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px rgba(0,83,135,0.1);
+    height: 80px;
+}
+#sa-landing .sa-nav-inner {
+    display: flex !important; justify-content: space-between !important; align-items: center !important;
+    height: 80px; max-width: 1200px; margin: 0 auto;
+    padding: 0 16px;
+}
+@media (min-width: 768px) { #sa-landing .sa-nav-inner { padding: 0 48px; } }
+
+#sa-landing .sa-nav-logo { height: 48px; width: auto; object-fit: contain; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); }
+#sa-landing .sa-nav-title { font-family: 'Quicksand', sans-serif !important; font-size: 24px !important; font-weight: 700 !important; color: var(--sa-primary); display: none; }
+@media (min-width: 640px) { #sa-landing .sa-nav-title { display: block !important; } }
+
+#sa-landing .sa-btn-gold {
+    background: var(--sa-secondary) !important;
+    color: var(--sa-deep-anchor) !important;
+    font-family: 'Quicksand', sans-serif !important;
+    font-size: 14px !important; font-weight: 700 !important;
+    letter-spacing: 0.05em;
+    padding: 12px 24px !important;
+    border-radius: 4px !important;
+    transition: all 0.3s !important;
+    box-shadow: var(--sa-shadow-ambient);
+    display: inline-block;
+}
+#sa-landing .sa-btn-gold:hover { background: rgba(201,159,96,0.8) !important; }
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+#sa-landing .sa-hero {
+    position: relative; min-height: 90vh;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    padding: 32px 0 64px; overflow: hidden;
+}
+#sa-landing .sa-hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+}
+#sa-landing .sa-hero-bg img {
+    width: 100% !important; height: 100% !important;
+    object-fit: cover; object-position: top;
+}
+#sa-landing .sa-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(27,49,63,0.95), rgba(27,49,63,0.80), rgba(27,108,168,0.50)) !important;
+}
+#sa-landing .sa-hero-content {
+    position: relative; z-index: 2; width: 100%; max-width: 1200px;
+    margin: 0 auto; padding: 0 16px;
+    display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important; align-items: center;
+}
+@media (min-width: 768px) { #sa-landing .sa-hero-content { padding: 0 48px; } }
+@media (min-width: 1024px) {
+    #sa-landing .sa-hero-content {
+        grid-template-columns: 7fr 5fr !important;
+    }
+}
+
+#sa-landing .sa-hero-text h1 { color: var(--sa-coastal-white) !important; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+#sa-landing .sa-hero-text p { color: rgba(255,255,255,0.8) !important; max-width: 560px; }
+
+/* Hero badge pills */
+#sa-landing .sa-badge-row { display: flex !important; flex-wrap: wrap !important; gap: 12px !important; padding-top: 24px !important; }
+#sa-landing .sa-badge {
+    display: flex !important; align-items: center !important; gap: 8px !important;
+    color: #fff; background: rgba(255,255,255,0.1); backdrop-filter: blur(4px);
+    border-left: 2px solid var(--sa-secondary);
+    border-radius: 0 4px 4px 0; padding: 8px 16px;
+}
+#sa-landing .sa-badge .material-symbols-outlined { color: var(--sa-secondary); font-size: 18px; }
+#sa-landing .sa-badge span:last-child { font-family: 'Quicksand', sans-serif !important; font-size: 14px; font-weight: 700; }
+
+/* ============================================
+   HERO FORM
+   ============================================ */
+#sa-landing .sa-form-card {
+    background: #fff !important; border-radius: 12px !important;
+    box-shadow: var(--sa-shadow-ambient); border: 1px solid rgba(207,229,255,0.3);
+    padding: 32px !important; position: relative; overflow: hidden;
+}
+#sa-landing .sa-form-card h2 { color: var(--sa-primary) !important; }
+#sa-landing .sa-form-card .sa-form-decor {
+    position: absolute; top: -16px; right: -16px;
+    width: 96px; height: 96px; background: var(--sa-secondary-fixed);
+    opacity: 0.2; border-radius: 0 0 0 100%;
+}
+#sa-landing .sa-form-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 16px !important; }
+@media (min-width: 640px) { #sa-landing .sa-form-grid-2 { grid-template-columns: 1fr 1fr !important; } }
+
+#sa-landing .sa-input {
+    width: 100% !important;
+    background: var(--sa-surface-container-lowest) !important;
+    border: 1px solid var(--sa-outline-variant) !important;
+    border-radius: 4px !important;
+    padding: 10px 14px !important;
+    font-size: 16px !important; line-height: 24px !important;
+    color: var(--sa-on-surface) !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none !important;
+}
+#sa-landing .sa-input::placeholder { color: var(--sa-outline); }
+#sa-landing .sa-input:focus {
+    outline: none !important;
+    border-color: var(--sa-tertiary-container) !important;
+    box-shadow: 0 0 0 3px rgba(0,113,144,0.2) !important;
+}
+#sa-landing .sa-input option { color: var(--sa-on-surface); }
+
+#sa-landing .sa-checkbox-row {
+    display: flex !important; align-items: flex-start !important; gap: 12px; margin-top: 8px;
+}
+#sa-landing .sa-checkbox-row input[type="checkbox"] {
+    width: 16px !important; height: 16px !important; margin-top: 2px;
+    border: 1px solid var(--sa-outline-variant); border-radius: 4px;
+    accent-color: var(--sa-primary);
+}
+#sa-landing .sa-checkbox-row label { font-size: 14px; color: var(--sa-on-surface-variant); }
+
+#sa-landing .sa-btn-primary {
+    width: 100% !important; margin-top: 16px;
+    background: var(--sa-primary) !important; color: #fff !important;
+    font-family: 'Quicksand', sans-serif !important; font-size: 14px !important; font-weight: 700 !important;
+    letter-spacing: 0.05em; padding: 16px 24px !important;
+    border-radius: 4px !important; transition: all 0.3s;
+    display: flex !important; align-items: center !important; justify-content: center !important; gap: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+#sa-landing .sa-btn-primary:hover { background: var(--sa-deep-anchor) !important; }
+
+/* ============================================
+   CREDIBILITY BAR
+   ============================================ */
+#sa-landing .sa-credbar {
+    background: var(--sa-surface-container-low) !important;
+    border-top: 1px solid rgba(192,199,209,0.3);
+    border-bottom: 1px solid rgba(192,199,209,0.3);
+    padding: 20px 0;
+}
+#sa-landing .sa-credbar-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 16px;
+    display: flex !important; flex-direction: column !important; align-items: center !important;
+    gap: 16px;
+}
+@media (min-width: 640px) {
+    #sa-landing .sa-credbar-inner { flex-direction: row !important; justify-content: center !important; gap: 40px; }
+}
+@media (min-width: 768px) { #sa-landing .sa-credbar-inner { padding: 0 48px; } }
+#sa-landing .sa-credbar-logos { display: flex !important; align-items: center !important; gap: 24px; }
+#sa-landing .sa-credbar-logos img { height: 40px; width: auto; opacity: 0.8; transition: opacity 0.3s; }
+#sa-landing .sa-credbar-logos img:hover { opacity: 1; }
+#sa-landing .sa-credbar-logos .sa-logo-acsi { height: 32px; }
+#sa-landing .sa-credbar-divider { width: 1px; height: 32px; background: rgba(192,199,209,0.4); }
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+#sa-landing .sa-section { padding: 80px 0 !important; }
+#sa-landing .sa-section-alt { background: var(--sa-surface-container-low) !important; }
+#sa-landing .sa-section-dark { background: var(--sa-surface-container-high) !important; border-top: 1px solid rgba(192,199,209,0.2); }
+
+#sa-landing .sa-section-title {
+    color: var(--sa-primary) !important; text-align: center; position: relative; display: inline-block;
+}
+#sa-landing .sa-section-title::after {
+    content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 4px;
+    background: var(--sa-accent-cyan); border-radius: 9999px;
+}
+#sa-landing .sa-section-title-wrap { text-align: center !important; margin-bottom: 48px !important; }
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+#sa-landing .sa-about-grid {
+    display: grid !important; grid-template-columns: 1fr !important; gap: 48px !important; align-items: center;
+}
+@media (min-width: 1024px) {
+    #sa-landing .sa-about-grid { grid-template-columns: 1fr 1fr !important; }
+}
+#sa-landing .sa-about-text { display: flex; flex-direction: column; gap: 16px; }
+#sa-landing .sa-about-text h3 { color: var(--sa-deep-anchor) !important; }
+#sa-landing .sa-about-text p { color: var(--sa-on-surface-variant); }
+
+#sa-landing .sa-blockquote {
+    border-left: 4px solid var(--sa-secondary) !important; padding-left: 32px; padding-top: 8px; padding-bottom: 8px; margin-top: 32px !important;
+}
+#sa-landing .sa-blockquote p {
+    font-family: 'Quicksand', sans-serif !important; font-size: 24px !important; line-height: 32px !important; font-weight: 600 !important;
+    color: var(--sa-deep-anchor) !important; font-style: italic;
+}
+
+/* About slider */
+#sa-landing .sa-slider-wrap {
+    border-radius: 12px; overflow: hidden; box-shadow: var(--sa-shadow-ambient);
+    border: 1px solid rgba(192,199,209,0.2); background: var(--sa-surface-container-low);
+    position: relative;
+}
+#sa-landing .sa-about-slide {
+    position: absolute !important; inset: 0; opacity: 0; transition: opacity 1s ease;
+    width: 100% !important; height: auto !important; object-fit: cover;
+}
+#sa-landing .sa-about-slide.sa-active {
+    position: relative !important; opacity: 1;
+}
+
+/* ============================================
+   CURRICULUM CARDS
+   ============================================ */
+#sa-landing .sa-card-grid {
+    display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important;
+}
+@media (min-width: 640px) { #sa-landing .sa-card-grid { grid-template-columns: 1fr 1fr !important; } }
+@media (min-width: 1024px) { #sa-landing .sa-card-grid { grid-template-columns: repeat(4, 1fr) !important; } }
+
+#sa-landing .sa-card {
+    background: #fff !important; border-radius: 8px !important; padding: 24px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid rgba(192,199,209,0.3);
+    transition: all 0.3s; position: relative; overflow: hidden;
+}
+#sa-landing .sa-card:hover { transform: translateY(-4px); box-shadow: var(--sa-shadow-ambient); }
+#sa-landing .sa-card::after {
+    content: ''; position: absolute; inset: 0; background: rgba(27,108,168,0);
+    border-radius: inherit; transition: background 0.4s; pointer-events: none; z-index: 1;
+}
+#sa-landing .sa-card:hover::after { background: rgba(27,108,168,0.06); }
+#sa-landing .sa-card > * { position: relative; z-index: 2; }
+
+#sa-landing .sa-card-icon {
+    width: 48px; height: 48px; border-radius: 9999px; display: flex !important;
+    align-items: center !important; justify-content: center !important; margin-bottom: 16px;
+    background: var(--sa-primary-container) !important;
+}
+#sa-landing .sa-card-icon .material-symbols-outlined { color: #fff; font-size: 24px; }
+#sa-landing .sa-card h4 { font-family: 'Quicksand', sans-serif !important; font-size: 18px !important; font-weight: 600 !important; color: var(--sa-deep-anchor) !important; margin-bottom: 8px !important; }
+#sa-landing .sa-card p { font-size: 14px !important; color: var(--sa-on-surface-variant); }
+
+/* ============================================
+   ENROLMENT STEPS
+   ============================================ */
+#sa-landing .sa-steps-grid {
+    display: grid !important; grid-template-columns: 1fr !important; gap: 32px !important;
+}
+@media (min-width: 768px) {
+    #sa-landing .sa-steps-grid { grid-template-columns: repeat(4, 1fr) !important; }
+}
+#sa-landing .sa-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+#sa-landing .sa-step-circle {
+    width: 64px; height: 64px; border-radius: 9999px !important;
+    background: #fff; border: 4px solid var(--sa-primary-fixed-dim) !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: all 0.35s;
+}
+#sa-landing .sa-step:hover .sa-step-circle {
+    background: var(--sa-primary) !important; border-color: var(--sa-primary-fixed-dim) !important;
+    transform: scale(1.1);
+}
+#sa-landing .sa-step-num {
+    font-family: 'Quicksand', sans-serif !important; font-size: 24px !important; font-weight: 600 !important;
+    color: var(--sa-primary); transition: color 0.3s;
+}
+#sa-landing .sa-step:hover .sa-step-num { color: #fff !important; }
+#sa-landing .sa-step h4 {
+    font-family: 'Quicksand', sans-serif !important; font-size: 18px !important; font-weight: 600 !important;
+    color: var(--sa-deep-anchor) !important; margin-bottom: 8px !important; transition: color 0.3s;
+}
+#sa-landing .sa-step:hover h4 { color: var(--sa-primary) !important; }
+#sa-landing .sa-step p { font-size: 14px !important; color: var(--sa-on-surface-variant); }
+
+#sa-landing .sa-step-final .sa-step-circle { background: var(--sa-primary) !important; }
+#sa-landing .sa-step-final .sa-step-circle .material-symbols-outlined { color: #fff; }
+
+/* ============================================
+   FEE TABLE
+   ============================================ */
+#sa-landing .sa-fee-table-wrap { max-width: 1000px; margin: 40px auto 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+#sa-landing .sa-fee-table {
+    width: 100% !important; min-width: 640px; background: #fff !important;
+    border-radius: 12px !important; box-shadow: var(--sa-shadow-ambient);
+    border: 2px solid rgba(192,199,209,0.3); border-collapse: collapse; overflow: hidden;
+}
+#sa-landing .sa-fee-table thead tr {
+    background: var(--sa-primary) !important;
+}
+#sa-landing .sa-fee-table th {
+    font-family: 'Quicksand', sans-serif !important; font-size: 14px !important; font-weight: 700 !important;
+    color: #fff !important; padding: 12px 16px !important; text-align: left;
+}
+#sa-landing .sa-fee-table th.sa-center { text-align: center; }
+#sa-landing .sa-fee-table td {
+    padding: 12px 16px !important; font-size: 14px !important;
+    border-bottom: 1px solid rgba(192,199,209,0.2);
+}
+#sa-landing .sa-fee-table .sa-grade-cell {
+    font-family: 'Quicksand', sans-serif !important; font-weight: 700 !important;
+    color: var(--sa-deep-anchor) !important; vertical-align: top;
+}
+#sa-landing .sa-fee-table .sa-fee { text-align: center; color: var(--sa-primary); font-weight: 600; }
+#sa-landing .sa-fee-table .sa-center { text-align: center; color: var(--sa-on-surface-variant); }
+#sa-landing .sa-fee-table .sa-row-alt { background: var(--sa-surface-container-lowest); }
+#sa-landing .sa-fee-table .sa-group-end td { border-bottom: 2px solid rgba(192,199,209,0.3); }
+
+#sa-landing .sa-fee-note {
+    max-width: 1000px; margin: 24px auto 0;
+    background: rgba(255,255,255,0.6); border-radius: 8px;
+    padding: 16px 24px; border: 1px solid rgba(192,199,209,0.2);
+}
+#sa-landing .sa-fee-note p { font-size: 12px !important; color: var(--sa-on-surface-variant); }
+#sa-landing .sa-fee-note strong { color: var(--sa-deep-anchor); font-weight: 600; }
+
+#sa-landing .sa-fee-checks {
+    display: flex !important; flex-wrap: wrap !important; justify-content: center !important;
+    gap: 16px 32px; max-width: 1000px; margin: 32px auto 0; padding: 0 16px;
+}
+#sa-landing .sa-fee-check {
+    display: flex !important; align-items: center !important; gap: 8px;
+}
+#sa-landing .sa-fee-check .material-symbols-outlined { color: var(--sa-primary); font-size: 18px; }
+#sa-landing .sa-fee-check span:last-child { font-family: 'Quicksand', sans-serif !important; font-size: 14px; font-weight: 700; color: var(--sa-on-surface-variant); }
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+#sa-landing .sa-testimonials { position: relative; }
+#sa-landing .sa-big-quote {
+    position: absolute; right: 0; top: 40px;
+    font-size: 144px; color: rgba(228,226,221,0.4); font-family: serif;
+    line-height: 1; user-select: none; z-index: 0;
+}
+#sa-landing .sa-carousel-wrap { position: relative; z-index: 1; overflow: hidden; }
+#sa-landing .sa-testimonial-track {
+    display: flex !important; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+#sa-landing .sa-testimonial-slide { min-width: 100%; padding: 0 6px; }
+@media (min-width: 768px) { #sa-landing .sa-testimonial-slide { min-width: 50%; } }
+
+#sa-landing .sa-testimonial-card {
+    background: #fff !important; padding: 32px !important; border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid rgba(192,199,209,0.2);
+    position: relative; margin: 0 8px; transition: all 0.35s;
+}
+#sa-landing .sa-testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,108,168,0.14); }
+#sa-landing .sa-testimonial-card .sa-quote-icon {
+    position: absolute; top: -16px; left: -8px;
+    color: var(--sa-primary-fixed-dim); font-size: 36px;
+    background: #fff; border-radius: 9999px; padding: 4px;
+}
+#sa-landing .sa-testimonial-card p { font-style: italic; color: var(--sa-on-surface); margin-bottom: 24px !important; margin-top: 8px !important; }
+#sa-landing .sa-testimonial-name { font-family: 'Quicksand', sans-serif !important; font-weight: 700 !important; color: var(--sa-deep-anchor); }
+
+#sa-landing .sa-carousel-nav {
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    gap: 16px; margin-top: 32px;
+}
+#sa-landing .sa-carousel-btn {
+    width: 40px; height: 40px; border-radius: 9999px !important;
+    border: 2px solid var(--sa-primary) !important; color: var(--sa-primary);
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    transition: all 0.3s; background: transparent !important;
+}
+#sa-landing .sa-carousel-btn:hover { background: var(--sa-primary) !important; color: #fff !important; }
+#sa-landing .sa-carousel-dots { display: flex !important; gap: 8px; }
+#sa-landing .sa-dot {
+    width: 10px; height: 10px; border-radius: 9999px;
+    background: var(--sa-outline-variant); transition: all 0.3s; border: none;
+}
+#sa-landing .sa-dot.sa-active { background: var(--sa-primary); width: 24px; }
+
+/* ============================================
+   LEADERSHIP SECTION
+   ============================================ */
+#sa-landing .sa-leadership-grid {
+    display: grid !important; grid-template-columns: 1fr !important; gap: 40px !important;
+    max-width: 900px; margin: 0 auto; align-items: center;
+}
+@media (min-width: 768px) {
+    #sa-landing .sa-leadership-grid { grid-template-columns: 1fr 1fr !important; }
+}
+#sa-landing .sa-founders-img {
+    border-radius: 12px; overflow: hidden; box-shadow: var(--sa-shadow-ambient);
+    border: 1px solid rgba(192,199,209,0.2);
+}
+#sa-landing .sa-founders-img img { width: 100% !important; height: auto !important; object-fit: cover; }
+#sa-landing .sa-founders-quote {
+    border-left: 4px solid var(--sa-secondary) !important; padding-left: 24px;
+}
+#sa-landing .sa-founders-quote p {
+    font-family: 'Libre Franklin', sans-serif !important; font-size: 18px !important;
+    line-height: 28px !important; color: var(--sa-deep-anchor) !important; font-style: italic;
+}
+#sa-landing .sa-founders-name { padding-left: 24px; margin-top: 24px !important; }
+#sa-landing .sa-founders-name p:first-child {
+    font-family: 'Quicksand', sans-serif !important; font-size: 18px !important; font-weight: 600 !important;
+    color: var(--sa-deep-anchor);
+}
+#sa-landing .sa-founders-name p:last-child {
+    font-family: 'Quicksand', sans-serif !important; font-size: 12px !important; font-weight: 500 !important;
+    color: var(--sa-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px !important;
+}
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+#sa-landing .sa-cta {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--sa-deep-anchor), var(--sa-primary), var(--sa-primary-container)) !important;
+    padding: 112px 0 !important;
+}
+#sa-landing .sa-cta-accent { position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(to right, var(--sa-secondary), var(--sa-accent-cyan), var(--sa-secondary)); }
+#sa-landing .sa-cta-orb {
+    position: absolute; border-radius: 9999px; filter: blur(48px);
+}
+#sa-landing .sa-cta-orb-1 { top: -80px; right: -80px; width: 288px; height: 288px; background: rgba(34,179,224,0.1); }
+#sa-landing .sa-cta-orb-2 { bottom: -80px; left: -80px; width: 288px; height: 288px; background: rgba(201,159,96,0.1); }
+
+#sa-landing .sa-cta-inner {
+    position: relative; z-index: 1; max-width: 768px; margin: 0 auto;
+    padding: 0 16px; text-align: center;
+}
+@media (min-width: 768px) { #sa-landing .sa-cta-inner { padding: 0 48px; } }
+
+#sa-landing .sa-cta-icon {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    width: 64px; height: 64px; border-radius: 9999px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px); margin-bottom: 32px;
+}
+#sa-landing .sa-cta-icon .material-symbols-outlined { color: var(--sa-accent-cyan); font-size: 30px; }
+
+#sa-landing .sa-cta h2 { color: #fff !important; margin-bottom: 16px !important; }
+#sa-landing .sa-cta p { color: rgba(255,255,255,0.7) !important; margin-bottom: 40px !important; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+#sa-landing .sa-btn-gold-lg {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 12px;
+    background: var(--sa-secondary) !important; color: var(--sa-deep-anchor) !important;
+    font-family: 'Quicksand', sans-serif !important; font-size: 14px !important; font-weight: 700 !important;
+    letter-spacing: 0.05em; padding: 20px 40px !important; border-radius: 8px !important;
+    transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    position: relative; overflow: hidden;
+}
+#sa-landing .sa-btn-gold-lg:hover { background: rgba(201,159,96,0.8) !important; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+#sa-landing .sa-btn-gold-lg::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+    animation: sa-shimmer 3s infinite;
+}
+@keyframes sa-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+/* Wave pattern overlay for CTA */
+#sa-landing .sa-cta-waves {
+    position: absolute; inset: 0; opacity: 0.07;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+#sa-landing .sa-footer {
+    background: var(--sa-dark-blue) !important;
+    color: #fff !important; padding: 32px 0 !important;
+    border-top: 4px solid var(--sa-secondary) !important;
+}
+#sa-landing .sa-footer-grid {
+    display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important;
+    max-width: 1200px; margin: 0 auto; padding: 0 16px;
+}
+@media (min-width: 768px) {
+    #sa-landing .sa-footer-grid { grid-template-columns: 1fr 1fr 1fr !important; padding: 0 48px; }
+}
+#sa-landing .sa-footer h4 {
+    font-family: 'Quicksand', sans-serif !important; font-size: 14px !important; font-weight: 700 !important;
+    color: var(--sa-secondary) !important; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px !important;
+}
+#sa-landing .sa-footer p, #sa-landing .sa-footer span, #sa-landing .sa-footer a {
+    font-size: 14px !important; color: rgba(228,226,221,0.8) !important;
+}
+#sa-landing .sa-footer a:hover { color: #fff !important; text-decoration: underline; }
+#sa-landing .sa-footer-school-name {
+    font-family: 'Quicksand', sans-serif !important; font-size: 24px !important; font-weight: 600 !important;
+    color: #fff !important;
+}
+
+#sa-landing .sa-footer-accred-badge {
+    display: flex !important; align-items: center !important; gap: 12px;
+    background: rgba(255,255,255,0.1); border-radius: 4px; padding: 8px 12px;
+}
+#sa-landing .sa-footer-accred-badge .sa-logo-bg {
+    background: #fff; border-radius: 2px; padding: 6px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+#sa-landing .sa-footer-accred-badge img { height: 28px; width: auto; }
+#sa-landing .sa-footer-accred-badge .sa-acsi-img { height: 20px; }
+#sa-landing .sa-footer-accred-text { display: flex; flex-direction: column; }
+#sa-landing .sa-footer-accred-text span:first-child { font-size: 12px !important; color: rgba(255,255,255,0.8) !important; line-height: 1.3; }
+#sa-landing .sa-footer-accred-text span:last-child { font-size: 10px !important; color: rgba(255,255,255,0.5) !important; line-height: 1.3; }
+
+/* ============================================
+   FLOATING CTA
+   ============================================ */
+#sa-landing .sa-floating-cta {
+    position: fixed !important; bottom: 24px; right: 24px; z-index: 999 !important;
+    background: var(--sa-secondary) !important; color: var(--sa-deep-anchor) !important;
+    padding: 12px 24px !important; border-radius: 9999px !important;
+    box-shadow: var(--sa-shadow-ambient); transition: all 0.3s;
+    display: flex !important; align-items: center !important; gap: 8px;
+    font-family: 'Quicksand', sans-serif !important; font-size: 14px !important; font-weight: 700 !important;
+}
+#sa-landing .sa-floating-cta:hover { transform: scale(1.05); background: rgba(201,159,96,0.8) !important; }
+</style>
+
+<!-- ==========================================
+     PAGE CONTENT START
+     ========================================== -->
+<div id="sa-landing">
+
+    <!-- Navigation -->
+    <nav class="sa-nav">
+        <div class="sa-nav-inner">
+            <a href="#sa-lead-form" style="display:flex;align-items:center;gap:12px;">
+                <img class="sa-nav-logo" alt="Safely Anchored Logo" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Lead LP Logo.webp">
+                <span class="sa-nav-title">Safely Anchored Small School</span>
+            </a>
+            <a class="sa-btn-gold" href="#sa-lead-form">Apply Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="sa-hero">
+        <div class="sa-hero-bg">
+            <div class="sa-hero-overlay"></div>
+            <img alt="Happy students at Safely Anchored Small School" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Safely Anchored Small School Founders Hero Image.webp">
+        </div>
+        <div class="sa-hero-content">
+            <div class="sa-hero-text">
+                <h1 class="sa-font-display-lg">A small Christian school in Sunningdale where your child is known by name.</h1>
+                <p class="sa-font-body-lg" style="margin-top:16px !important;">Nurturing growth from Grade R to Grade 5 in a secure, loving environment. We ensure dedicated attention with a maximum of 20 children per class.</p>
+                <div class="sa-badge-row">
+                    <div class="sa-badge">
+                        <span class="material-symbols-outlined sa-icon-filled">check_circle</span>
+                        <span>CAPS Curriculum</span>
+                    </div>
+                    <div class="sa-badge">
+                        <span class="material-symbols-outlined sa-icon-filled">check_circle</span>
+                        <span>Christian Values</span>
+                    </div>
+                    <div class="sa-badge">
+                        <span class="material-symbols-outlined sa-icon-filled">check_circle</span>
+                        <span>Dedicated Extramurals</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Lead Form -->
+            <div id="sa-lead-form" style="margin-top:32px;">
+                <div class="sa-form-card">
+                    <div class="sa-form-decor"></div>
+                    <h2 class="sa-font-headline-md" style="margin-bottom:8px !important;">Book a School Tour</h2>
+                    <p class="sa-font-body-md" style="font-size:14px !important;color:var(--sa-on-surface-variant);margin-bottom:24px !important;">Come see our unique environment firsthand.</p>
+                    <form>
+                        <div class="sa-form-grid" style="margin-bottom:16px;">
+                            <input class="sa-input" type="text" placeholder="Parent Name &amp; Surname">
+                        </div>
+                        <div class="sa-form-grid sa-form-grid-2" style="margin-bottom:16px;">
+                            <input class="sa-input" type="email" placeholder="Email Address">
+                            <input class="sa-input" type="tel" placeholder="Phone Number">
+                        </div>
+                        <div class="sa-form-grid sa-form-grid-2" style="margin-bottom:16px;">
+                            <input class="sa-input" type="text" placeholder="Child's First Name">
+                            <select class="sa-input">
+                                <option disabled selected value="">Grade in 2027</option>
+                                <option value="r">Grade R (2027)</option>
+                                <option value="1">Grade 1 (2027)</option>
+                                <option value="2">Grade 2 (2027)</option>
+                                <option value="3">Grade 3 (2027)</option>
+                                <option value="4">Grade 4 (2027)</option>
+                                <option value="5">Grade 5 (2027)</option>
+                            </select>
+                        </div>
+                        <div class="sa-form-grid" style="margin-bottom:8px;">
+                            <select class="sa-input">
+                                <option disabled selected value="">Best time to call</option>
+                                <option value="morning">Morning (08:00 - 12:00)</option>
+                                <option value="afternoon">Afternoon (12:00 - 16:00)</option>
+                            </select>
+                        </div>
+                        <div class="sa-checkbox-row">
+                            <input type="checkbox" id="sa-popia">
+                            <label for="sa-popia">I agree to be contacted about enrolment (POPIA).</label>
+                        </div>
+                        <button type="button" class="sa-btn-primary">
+                            Submit Enquiry
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Bar -->
+    <div class="sa-credbar">
+        <div class="sa-credbar-inner">
+            <div style="display:flex;align-items:center;gap:8px;">
+                <span class="material-symbols-outlined sa-icon-filled" style="color:var(--sa-primary);font-size:20px;">verified</span>
+                <p class="sa-font-body-md" style="font-size:14px !important;font-weight:500;color:var(--sa-on-surface);">Fully registered &amp; accredited</p>
+            </div>
+            <div class="sa-credbar-logos">
+                <a href="https://www.education.gov.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/WCG Edu Logo.png" alt="Western Cape Government">
+                </a>
+                <div class="sa-credbar-divider"></div>
+                <a href="https://www.acsi.org/" target="_blank" rel="noopener noreferrer">
+                    <img class="sa-logo-acsi" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/ACSI logo.png" alt="ACSI">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="sa-section" id="sa-about">
+        <div class="sa-container">
+            <div class="sa-section-title-wrap">
+                <h2 class="sa-font-headline-lg sa-section-title">A Foundation of Faith &amp; Learning</h2>
+            </div>
+            <div class="sa-about-grid">
+                <div class="sa-about-text">
+                    <h3 class="sa-font-headline-md">Welcome to Safely Anchored Small School</h3>
+                    <p class="sa-font-body-md">Safely Anchored is an independent Christian primary school in Sunningdale, Cape Town. Our journey began in 2015 as a dedicated aftercare, and today we extend that same heart-centered care to learners from age 4 through to Grade 7.</p>
+                    <p class="sa-font-body-md">We meet our families where they are and walk alongside them. Our approach is rooted in today, knowing there is beauty and wisdom in each phase of development. When content and care are driven with intention, children truly learn to love learning.</p>
+                    <div class="sa-blockquote" style="margin-top:32px;">
+                        <p>&ldquo;Nurturing growth in a secure, loving environment where every child is known by name.&rdquo;</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="sa-slider-wrap" id="sa-about-slider">
+                        <img alt="Students at Safely Anchored - 1" class="sa-about-slide sa-active" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Safely Anchored Small School Founders Slide 1.jpg">
+                        <img alt="Students at Safely Anchored - 2" class="sa-about-slide" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Safely Anchored Small School Founders Slide 2.jpg">
+                        <img alt="Students at Safely Anchored - 3" class="sa-about-slide" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Safely Anchored Small School Founders Slide 3.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More than the classroom -->
+    <section class="sa-section sa-section-alt">
+        <div class="sa-container">
+            <div style="margin-bottom:48px;">
+                <h2 class="sa-font-headline-lg sa-section-title">More than the classroom</h2>
+                <p class="sa-font-body-lg" style="color:var(--sa-on-surface-variant);margin-top:16px !important;max-width:640px;">A balanced approach combining rigorous academics with physical and holistic development, delivered by our team of qualified teachers.</p>
+            </div>
+            <div class="sa-card-grid">
+                <div class="sa-card">
+                    <div class="sa-card-icon"><span class="material-symbols-outlined">menu_book</span></div>
+                    <h4>CAPS Curriculum</h4>
+                    <p>Delivering the national curriculum with personalized attention and Christian values woven throughout.</p>
+                </div>
+                <div class="sa-card">
+                    <div class="sa-card-icon"><span class="material-symbols-outlined">sports_soccer</span></div>
+                    <h4>Extramural Sports</h4>
+                    <p>On-site extramurals from Rugga Roots (rugby), Shift Netball Academy, and Soccer Starz are available for learners who want to participate. Fees apply per programme.</p>
+                </div>
+                <div class="sa-card">
+                    <div class="sa-card-icon"><span class="material-symbols-outlined">fitness_center</span></div>
+                    <h4>Cape Kinetics</h4>
+                    <p>Specialized kinetics program designed to enhance coordination, core strength, and developmental milestones.</p>
+                </div>
+                <div class="sa-card">
+                    <div class="sa-card-icon"><span class="material-symbols-outlined">directions_bus</span></div>
+                    <h4>Aftercare &amp; Transport</h4>
+                    <p>Safe, supervised aftercare facilities and reliable transport options to support working parents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Enrolment Works -->
+    <section class="sa-section">
+        <div class="sa-container">
+            <div class="sa-section-title-wrap">
+                <h2 class="sa-font-headline-lg sa-section-title">How Enrolment Works</h2>
+            </div>
+            <div class="sa-steps-grid">
+                <div class="sa-step">
+                    <div class="sa-step-circle"><span class="sa-step-num">1</span></div>
+                    <h4>Trial Day</h4>
+                    <p>Your child spends a day with us to experience our environment and interact with peers.</p>
+                </div>
+                <div class="sa-step">
+                    <div class="sa-step-circle"><span class="sa-step-num">2</span></div>
+                    <h4>Honest Feedback</h4>
+                    <p>We provide open communication about whether our school is the best fit for your child's needs.</p>
+                </div>
+                <div class="sa-step">
+                    <div class="sa-step-circle"><span class="sa-step-num">3</span></div>
+                    <h4>Acceptance Letter</h4>
+                    <p>If it's a great match, you'll receive a formal offer of placement for your child.</p>
+                </div>
+                <div class="sa-step sa-step-final">
+                    <div class="sa-step-circle">
+                        <span class="material-symbols-outlined sa-icon-filled" style="color:#fff;font-size:24px;">anchor</span>
+                    </div>
+                    <h4>Confirmation</h4>
+                    <p>Complete the enrolment paperwork and officially join the Safely Anchored family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees 2027 -->
+    <section class="sa-section sa-section-dark" id="sa-fees">
+        <div class="sa-container">
+            <div class="sa-section-title-wrap" style="margin-bottom:24px !important;">
+                <h2 class="sa-font-headline-lg sa-section-title">Fee Structure 2027</h2>
+                <p class="sa-font-body-md" style="color:var(--sa-on-surface-variant);margin-top:16px !important;max-width:640px;margin-left:auto;margin-right:auto;text-align:center;">All fees include Physical Education facilitated by PhyzzEd and Robotics &amp; Coding facilitated by StimuZone.</p>
+            </div>
+            <div class="sa-fee-table-wrap">
+                <table class="sa-fee-table">
+                    <thead>
+                        <tr>
+                            <th>Grade</th>
+                            <th>Option</th>
+                            <th class="sa-center">Hours</th>
+                            <th class="sa-center">Monthly Fee</th>
+                            <th class="sa-center">Annual Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="sa-grade-cell" rowspan="3">Grade R</td>
+                            <td>Half Day</td>
+                            <td class="sa-center">07:15 &ndash; 13:00</td>
+                            <td class="sa-fee">R4,520</td>
+                            <td class="sa-center">R54,240</td>
+                        </tr>
+                        <tr>
+                            <td>Three-Quarter Day</td>
+                            <td class="sa-center">07:15 &ndash; 15:00</td>
+                            <td class="sa-fee">R4,870</td>
+                            <td class="sa-center">R58,440</td>
+                        </tr>
+                        <tr class="sa-group-end">
+                            <td>Full Day</td>
+                            <td class="sa-center">07:15 &ndash; 18:00</td>
+                            <td class="sa-fee">R5,520</td>
+                            <td class="sa-center">R66,240</td>
+                        </tr>
+                        <tr class="sa-row-alt">
+                            <td class="sa-grade-cell" rowspan="3">Grade 1 &ndash; 2</td>
+                            <td>Half Day</td>
+                            <td class="sa-center">07:15 &ndash; 13:15</td>
+                            <td class="sa-fee">R4,770</td>
+                            <td class="sa-center">R57,240</td>
+                        </tr>
+                        <tr class="sa-row-alt">
+                            <td>Three-Quarter Day</td>
+                            <td class="sa-center">07:15 &ndash; 15:00</td>
+                            <td class="sa-fee">R5,070</td>
+                            <td class="sa-center">R60,840</td>
+                        </tr>
+                        <tr class="sa-row-alt sa-group-end">
+                            <td>Full Day</td>
+                            <td class="sa-center">07:15 &ndash; 18:00</td>
+                            <td class="sa-fee">R5,720</td>
+                            <td class="sa-center">R68,640</td>
+                        </tr>
+                        <tr>
+                            <td class="sa-grade-cell" rowspan="2">Grade 3</td>
+                            <td>Three-Quarter Day</td>
+                            <td class="sa-center">07:15 &ndash; 15:00</td>
+                            <td class="sa-fee">R5,070</td>
+                            <td class="sa-center">R60,840</td>
+                        </tr>
+                        <tr class="sa-group-end">
+                            <td>Full Day</td>
+                            <td class="sa-center">07:15 &ndash; 18:00</td>
+                            <td class="sa-fee">R5,720</td>
+                            <td class="sa-center">R68,640</td>
+                        </tr>
+                        <tr class="sa-row-alt">
+                            <td class="sa-grade-cell" rowspan="2">Grade 4 &ndash; 5</td>
+                            <td>Three-Quarter Day</td>
+                            <td class="sa-center">07:15 &ndash; 15:00</td>
+                            <td class="sa-fee">R5,120</td>
+                            <td class="sa-center">R61,440</td>
+                        </tr>
+                        <tr class="sa-row-alt">
+                            <td>Full Day</td>
+                            <td class="sa-center">07:15 &ndash; 18:00</td>
+                            <td class="sa-fee">R5,820</td>
+                            <td class="sa-center">R69,840</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sa-fee-note">
+                <p><strong>Please note:</strong> Half Day = standard school day. Three-Quarter Day includes Aftercare until 15:00 (no Holiday Club). Full Day includes Aftercare &amp; Holiday Club until 18:00.</p>
+            </div>
+            <div class="sa-fee-checks">
+                <div class="sa-fee-check">
+                    <span class="material-symbols-outlined">check</span>
+                    <span>12 monthly instalments (Jan&ndash;Dec)</span>
+                </div>
+                <div class="sa-fee-check">
+                    <span class="material-symbols-outlined">check</span>
+                    <span>PhyzzEd &amp; StimuZone included</span>
+                </div>
+                <div class="sa-fee-check">
+                    <span class="material-symbols-outlined">check</span>
+                    <span>Transport available on enquiry</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="sa-section sa-testimonials">
+        <div class="sa-container">
+            <div class="sa-section-title-wrap" style="position:relative;z-index:1;">
+                <h2 class="sa-font-headline-lg sa-section-title">What other parents say</h2>
+            </div>
+            <div class="sa-big-quote">&ldquo;</div>
+            <div class="sa-carousel-wrap">
+                <div class="sa-testimonial-track" id="sa-testimonial-track">
+                    <div class="sa-testimonial-slide">
+                        <div class="sa-testimonial-card">
+                            <span class="material-symbols-outlined sa-quote-icon">format_quote</span>
+                            <p class="sa-font-body-md">&ldquo;Our daughter has been with Safely Anchored in Grade R and now Grade 1. It is a school where she has thrived; every kid is known by name and genuinely loved. Plus they shine Jesus. Genuine staff and teachers who are always striving to learn, grow and improve where they can, serving their learners and their families.&rdquo;</p>
+                            <div class="sa-testimonial-name">Carrie-Anne Duvenhage</div>
+                        </div>
+                    </div>
+                    <div class="sa-testimonial-slide">
+                        <div class="sa-testimonial-card">
+                            <span class="material-symbols-outlined sa-quote-icon">format_quote</span>
+                            <p class="sa-font-body-md">&ldquo;Kind and caring teachers. Our daughter loves the environment, the teachers provide excellent academic support and a strong focus on values. You are not just a number here.&rdquo;</p>
+                            <div class="sa-testimonial-name">Tarryn Bodenstein</div>
+                        </div>
+                    </div>
+                    <div class="sa-testimonial-slide">
+                        <div class="sa-testimonial-card">
+                            <span class="material-symbols-outlined sa-quote-icon">format_quote</span>
+                            <p class="sa-font-body-md">&ldquo;Loving personnel, awesome values and quality education! Forming children with extraordinary character. A great asset for the community!&rdquo;</p>
+                            <div class="sa-testimonial-name">Elmien Botha</div>
+                        </div>
+                    </div>
+                    <div class="sa-testimonial-slide">
+                        <div class="sa-testimonial-card">
+                            <span class="material-symbols-outlined sa-quote-icon">format_quote</span>
+                            <p class="sa-font-body-md">&ldquo;Coming out of homeschooling my two children for a year, I was looking for a small, nurturing school environment with solid values and a focus on family and community. Safely Anchored was an answered prayer! My two boys love going to school and have made really good academic progress in the time they've been there. Highly recommend!&rdquo;</p>
+                            <div class="sa-testimonial-name">Lauren Ferguson</div>
+                        </div>
+                    </div>
+                    <div class="sa-testimonial-slide">
+                        <div class="sa-testimonial-card">
+                            <span class="material-symbols-outlined sa-quote-icon">format_quote</span>
+                            <p class="sa-font-body-md">&ldquo;So great to have a school with such great values and excellent teachers!&rdquo;</p>
+                            <div class="sa-testimonial-name">Ockert Botha</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sa-carousel-nav">
+                    <button class="sa-carousel-btn" id="sa-test-prev" aria-label="Previous"><span class="material-symbols-outlined" style="font-size:20px;">chevron_left</span></button>
+                    <div class="sa-carousel-dots" id="sa-test-dots"></div>
+                    <button class="sa-carousel-btn" id="sa-test-next" aria-label="Next"><span class="material-symbols-outlined" style="font-size:20px;">chevron_right</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A note from our Leadership -->
+    <section class="sa-section sa-section-alt">
+        <div class="sa-container">
+            <div class="sa-section-title-wrap">
+                <h2 class="sa-font-headline-lg sa-section-title">A note from our Leadership</h2>
+            </div>
+            <div class="sa-leadership-grid">
+                <div class="sa-founders-img">
+                    <img alt="Shireen and Antonie Botha, Founders of Safely Anchored" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Safely Anchored Small School Founders.jpg">
+                </div>
+                <div>
+                    <div class="sa-founders-quote">
+                        <p>&ldquo;We love our community and the fact that we can support families through Safely Anchored. It is truly a privilege to walk alongside parents in the development of their children&rsquo;s character and seeing them mature into well-rounded individuals.&rdquo;</p>
+                    </div>
+                    <div class="sa-founders-name">
+                        <p>Shireen &amp; Antonie Botha</p>
+                        <p>Founders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="sa-cta">
+        <div class="sa-cta-accent"></div>
+        <div class="sa-cta-orb sa-cta-orb-1"></div>
+        <div class="sa-cta-orb sa-cta-orb-2"></div>
+        <div class="sa-cta-waves">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="sa-waves" patternUnits="userSpaceOnUse" width="120" height="50">
+                        <path d="M0 25 Q 30 10, 60 25 T 120 25" fill="none" stroke="white" stroke-width="1.5"/>
+                        <path d="M0 35 Q 30 20, 60 35 T 120 35" fill="none" stroke="white" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect fill="url(#sa-waves)" width="100%" height="100%"/>
+            </svg>
+        </div>
+        <div class="sa-cta-inner">
+            <div class="sa-cta-icon">
+                <span class="material-symbols-outlined sa-icon-filled">anchor</span>
+            </div>
+            <h2 class="sa-font-display-lg" style="color:#fff !important;">Come see if this is where your child will thrive.</h2>
+            <p class="sa-font-body-lg">Schedule a visit to meet our educators and see our classrooms in action.</p>
+            <a class="sa-btn-gold-lg" href="#sa-lead-form">
+                Start Your Enrolment Journey
+                <span class="material-symbols-outlined">sailing</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="sa-footer">
+        <div class="sa-footer-grid">
+            <div style="display:flex;flex-direction:column;gap:16px;">
+                <span class="sa-footer-school-name">Safely Anchored Small School</span>
+                <p style="max-width:300px;">A small Christian school in Sunningdale where your child is known by name.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+                <h4>Contact</h4>
+                <div style="display:flex;align-items:flex-start;gap:8px;">
+                    <span class="material-symbols-outlined" style="font-size:14px;margin-top:2px;">location_on</span>
+                    <span>12 Leadville Way,<br>Sunningdale</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <span class="material-symbols-outlined" style="font-size:14px;">language</span>
+                    <a href="https://www.safelyanchored.co.za" target="_blank" rel="noopener noreferrer">www.safelyanchored.co.za</a>
+                </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+                <h4>Accreditations</h4>
+                <div class="sa-footer-accred-badge">
+                    <div class="sa-logo-bg">
+                        <img src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/WCG Edu Logo.png" alt="WCG">
+                    </div>
+                    <div class="sa-footer-accred-text">
+                        <span>Western Cape Government</span>
+                        <span>Registered Independent School</span>
+                    </div>
+                </div>
+                <div class="sa-footer-accred-badge">
+                    <div class="sa-logo-bg">
+                        <img class="sa-acsi-img" src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/ACSI logo.png" alt="ACSI">
+                    </div>
+                    <span style="font-size:12px !important;color:rgba(255,255,255,0.8) !important;">ACSI Accredited</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating CTA -->
+    <a class="sa-floating-cta" href="#sa-lead-form">
+        <span class="material-symbols-outlined" style="font-size:14px;">school</span>
+        Now Enrolling for 2027
+    </a>
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
+<script>
+(function() {
+    // Testimonial carousel
+    var track = document.getElementById('sa-testimonial-track');
+    if (!track) return;
+    var slides = track.querySelectorAll('.sa-testimonial-slide');
+    var prevBtn = document.getElementById('sa-test-prev');
+    var nextBtn = document.getElementById('sa-test-next');
+    var dotsContainer = document.getElementById('sa-test-dots');
+    var currentIndex = 0;
+    var slidesPerView = window.innerWidth >= 768 ? 2 : 1;
+    var totalPages = Math.ceil(slides.length / slidesPerView);
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (var i = 0; i < totalPages; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'sa-dot' + (i === currentIndex ? ' sa-active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.dataset.index = i;
+            dot.addEventListener('click', function() { goTo(parseInt(this.dataset.index)); });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function goTo(index) {
+        if (index < 0) index = totalPages - 1;
+        if (index >= totalPages) index = 0;
+        currentIndex = index;
+        var offset = currentIndex * (100 / slidesPerView) * slidesPerView;
+        track.style.transform = 'translateX(-' + offset + '%)';
+        buildDots();
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(currentIndex - 1); });
+    nextBtn.addEventListener('click', function() { goTo(currentIndex + 1); });
+
+    var autoplay = setInterval(function() { goTo(currentIndex + 1); }, 6000);
+    var section = track.closest('section') || track.closest('.sa-testimonials');
+    if (section) {
+        section.addEventListener('mouseenter', function() { clearInterval(autoplay); });
+        section.addEventListener('mouseleave', function() { autoplay = setInterval(function() { goTo(currentIndex + 1); }, 6000); });
+    }
+
+    window.addEventListener('resize', function() {
+        slidesPerView = window.innerWidth >= 768 ? 2 : 1;
+        totalPages = Math.ceil(slides.length / slidesPerView);
+        if (currentIndex >= totalPages) currentIndex = totalPages - 1;
+        goTo(currentIndex);
+    });
+
+    buildDots();
+
+    // About section image slider
+    var aboutSlides = document.querySelectorAll('#sa-about-slider .sa-about-slide');
+    if (aboutSlides.length > 0) {
+        var aboutCurrent = 0;
+        setInterval(function() {
+            aboutSlides[aboutCurrent].classList.remove('sa-active');
+            aboutCurrent = (aboutCurrent + 1) % aboutSlides.length;
+            aboutSlides[aboutCurrent].classList.add('sa-active');
+        }, 4000);
+    }
+})();
+</script>
