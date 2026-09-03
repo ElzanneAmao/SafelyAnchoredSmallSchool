@@ -982,33 +982,40 @@
             btnText.textContent = 'Sending...';
             btnIcon.textContent = 'hourglass_empty';
 
-            var formData = new FormData();
-            formData.append('parentName', parentName);
-            formData.append('childName', childName);
-            formData.append('email', email);
-            formData.append('phone', phone);
-            formData.append('grade', grade);
-            formData.append('callTime', callTime);
+            var scriptUrl = 'https://script.google.com/macros/s/AKfycbxo61p3GzN-iTXr-9LOloLdBAA8ekFGmt6hkaQ10-lpqP9EQVdc-YALljC_mppAmkW9/exec';
 
-            fetch('https://script.google.com/macros/s/AKfycbxo61p3GzN-iTXr-9LOloLdBAA8ekFGmt6hkaQ10-lpqP9EQVdc-YALljC_mppAmkW9/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData
-            }).then(function() {
+            var iframe = document.createElement('iframe');
+            iframe.name = 'sa-form-target';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
+            var hiddenForm = document.createElement('form');
+            hiddenForm.method = 'POST';
+            hiddenForm.action = scriptUrl;
+            hiddenForm.target = 'sa-form-target';
+            hiddenForm.style.display = 'none';
+
+            var fields = { parentName: parentName, childName: childName, email: email, phone: phone, grade: grade, callTime: callTime };
+            for (var key in fields) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = fields[key];
+                hiddenForm.appendChild(input);
+            }
+
+            document.body.appendChild(hiddenForm);
+            hiddenForm.submit();
+
+            setTimeout(function() {
                 form.innerHTML = '<div class="text-center py-8">'
                     + '<span class="material-symbols-outlined text-5xl text-primary mb-4 block icon-filled">check_circle</span>'
                     + '<h3 class="font-headline-md text-xl text-primary mb-2">Thank You!</h3>'
                     + '<p class="text-on-surface-variant">We\'ve received your enquiry and will be in touch shortly.</p>'
                     + '</div>';
-            }).catch(function() {
-                btnText.textContent = 'Something went wrong — please try again';
-                btnIcon.textContent = 'error';
-                btn.disabled = false;
-                setTimeout(function() {
-                    btnText.textContent = 'Submit Enquiry';
-                    btnIcon.textContent = 'arrow_forward';
-                }, 3000);
-            });
+                document.body.removeChild(hiddenForm);
+                document.body.removeChild(iframe);
+            }, 2000);
         });
     })();
 
