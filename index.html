@@ -982,18 +982,18 @@
             btnText.textContent = 'Sending...';
             btnIcon.textContent = 'hourglass_empty';
 
+            var formData = new FormData();
+            formData.append('parentName', parentName);
+            formData.append('childName', childName);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('grade', grade);
+            formData.append('callTime', callTime);
+
             fetch('https://script.google.com/macros/s/AKfycbzv_sm9lirUcfQWGlWlFcV4lpLDdDx0TYLQw7DG41vNgPwAHlX1meYNnqpa2KDCSw4C/exec', {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    parentName: parentName,
-                    childName: childName,
-                    email: email,
-                    phone: phone,
-                    grade: grade,
-                    callTime: callTime
-                })
+                body: formData
             }).then(function() {
                 form.innerHTML = '<div class="text-center py-8">'
                     + '<span class="material-symbols-outlined text-5xl text-primary mb-4 block icon-filled">check_circle</span>'
