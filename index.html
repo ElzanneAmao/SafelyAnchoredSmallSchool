@@ -411,9 +411,9 @@
                                 <label for="popia">I agree to be contacted about enrolment (POPIA).</label>
                             </div>
                         </div>
-                        <button class="w-full mt-4 bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg py-4 rounded-DEFAULT transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group" type="button">
-                            Submit Enquiry
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                        <button id="submit-btn" class="w-full mt-4 bg-primary hover:bg-deep-anchor text-coastal-white font-label-lg text-label-lg py-4 rounded-DEFAULT transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group" type="button">
+                            <span id="btn-text">Submit Enquiry</span>
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" id="btn-icon" data-icon="arrow_forward">arrow_forward</span>
                         </button>
                     </form>
                 </div>
@@ -930,6 +930,65 @@
         });
 
         buildDots();
+    })();
+
+    // Form submission
+    (function() {
+        var btn = document.getElementById('submit-btn');
+        var btnText = document.getElementById('btn-text');
+        var btnIcon = document.getElementById('btn-icon');
+        var form = btn.closest('form');
+
+        btn.addEventListener('click', function() {
+            var parentName = document.getElementById('parent_name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var childName = document.getElementById('child_name').value.trim();
+            var grade = document.getElementById('grade').value;
+            var callTime = document.getElementById('call_time').value;
+            var popia = document.getElementById('popia').checked;
+
+            if (!parentName || !email || !phone || !childName || !grade || !callTime) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            if (!popia) {
+                alert('Please agree to be contacted (POPIA consent).');
+                return;
+            }
+
+            btn.disabled = true;
+            btnText.textContent = 'Sending...';
+            btnIcon.textContent = 'hourglass_empty';
+
+            fetch('https://script.google.com/macros/s/AKfycbzv_sm9lirUcfQWGlWlFcV4lpLDdDx0TYLQw7DG41vNgPwAHlX1meYNnqpa2KDCSw4C/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    parentName: parentName,
+                    childName: childName,
+                    email: email,
+                    phone: phone,
+                    grade: grade,
+                    callTime: callTime
+                })
+            }).then(function() {
+                form.innerHTML = '<div class="text-center py-8">'
+                    + '<span class="material-symbols-outlined text-5xl text-primary mb-4 block icon-filled">check_circle</span>'
+                    + '<h3 class="font-headline-md text-xl text-primary mb-2">Thank You!</h3>'
+                    + '<p class="text-on-surface-variant">We\'ve received your enquiry and will be in touch shortly.</p>'
+                    + '</div>';
+            }).catch(function() {
+                btnText.textContent = 'Something went wrong — please try again';
+                btnIcon.textContent = 'error';
+                btn.disabled = false;
+                setTimeout(function() {
+                    btnText.textContent = 'Submit Enquiry';
+                    btnIcon.textContent = 'arrow_forward';
+                }, 3000);
+            });
+        });
     })();
 
     // About section image slider
