@@ -369,27 +369,27 @@
                         </div>
                         <div>
                             <label class="sr-only" for="parent_name">Name + Surname</label>
-                            <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="parent_name" placeholder="Parent Name &amp; Surname" type="text" required>
+                            <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="parent_name" placeholder="Parent Name &amp; Surname *" type="text" required>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="sr-only" for="email">Email</label>
-                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="email" placeholder="Email Address" type="email" required>
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="email" placeholder="Email Address *" type="email" required>
                             </div>
                             <div>
                                 <label class="sr-only" for="phone">Phone</label>
-                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="phone" placeholder="Phone Number" type="tel" required>
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="phone" placeholder="Phone Number *" type="tel" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="sr-only" for="child_name">Child's First Name</label>
-                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="child_name" placeholder="Child's First Name" type="text" required>
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="child_name" placeholder="Child's First Name *" type="text" required>
                             </div>
                             <div>
                                 <label class="sr-only" for="grade">Grade in 2027</label>
                                 <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="grade" required>
-                                    <option disabled selected value="">Grade in 2027</option>
+                                    <option disabled selected value="">Grade in 2027 *</option>
                                     <option value="r">Grade R (2027)</option>
                                     <option value="1">Grade 1 (2027)</option>
                                     <option value="2">Grade 2 (2027)</option>
@@ -402,7 +402,7 @@
                         <div>
                             <label class="sr-only" for="call_time">Best time to call</label>
                             <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="call_time" required>
-                                <option disabled selected value="">Best time to call</option>
+                                <option disabled selected value="">Best time to call *</option>
                                 <option value="morning">Morning (08:00 - 12:00)</option>
                                 <option value="afternoon">Afternoon (12:00 - 16:00)</option>
                             </select>
@@ -943,7 +943,21 @@
         var btnIcon = document.getElementById('btn-icon');
         var form = btn.closest('form');
 
+        var errorMsg = document.createElement('p');
+        errorMsg.id = 'form-error';
+        errorMsg.className = 'text-sm text-error font-medium mt-1 hidden';
+        btn.parentNode.insertBefore(errorMsg, btn);
+
+        function showError(msg) {
+            errorMsg.textContent = msg;
+            errorMsg.classList.remove('hidden');
+        }
+        function clearError() {
+            errorMsg.classList.add('hidden');
+        }
+
         btn.addEventListener('click', function() {
+            clearError();
             var parentName = document.getElementById('parent_name').value.trim();
             var email = document.getElementById('email').value.trim();
             var phone = document.getElementById('phone').value.trim();
@@ -956,11 +970,11 @@
             if (honeypot) return;
 
             if (!parentName || !email || !phone || !childName || !grade || !callTime) {
-                alert('Please fill in all fields.');
+                showError('Please fill in all required fields.');
                 return;
             }
             if (!popia) {
-                alert('Please agree to be contacted (POPIA consent).');
+                showError('Please agree to be contacted (POPIA consent).');
                 return;
             }
 
