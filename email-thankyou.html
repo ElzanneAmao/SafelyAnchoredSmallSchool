@@ -1,86 +1,172 @@
 <!--
   THANK YOU EMAIL — for Google Apps Script
-  Copy the HTML between the COPY START and COPY END comments
-  into your Apps Script GmailApp.sendEmail() htmlBody parameter.
-
-  Replace placeholders:
-  " + data.parentName + "  →  parent's name from form
-  " + data.childName + "   →  child's name from form
+  Uses e.parameter values (parentName, childName) from FormData POST.
+  Logo src must point to the hosted PNG URL (no base64 in production).
 -->
 
 <!-- COPY START -->
-<div style="margin:0;padding:0;background-color:#f5f3ee;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f5f3ee;">
-    <tr>
-      <td align="center" style="padding:32px 16px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;">
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Thank you for your enquiry — Safely Anchored Small School</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
+<style>
+body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; }
+@media only screen and (max-width: 620px) {
+  .email-container { width: 100% !important; max-width: 100% !important; }
+  .stack-column { display: block !important; width: 100% !important; }
+  .body-content { padding: 28px 24px !important; }
+}
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#F7F5F0; font-family:Arial, Helvetica, sans-serif;">
 
-          <!-- Header with logo -->
-          <tr>
-            <td align="center" style="padding:24px 40px;background-color:#fbf9f4;border-radius:12px 12px 0 0;">
-              <img src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/Lead LP Logo.webp" alt="Safely Anchored Small School" width="60" height="60" style="display:block;width:60px;height:60px;object-fit:contain;">
-              <p style="margin:12px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;color:#0E3B5C;letter-spacing:0.02em;">Safely Anchored Small School</p>
-            </td>
-          </tr>
+<!-- Preheader -->
+<span style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">
+Thank you for your interest in Safely Anchored Small School. Our receptionist will be in touch shortly to arrange a visit.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</span>
 
-          <!-- Gold accent line -->
-          <tr>
-            <td style="height:4px;background-color:#C99F60;font-size:0;line-height:0;">&nbsp;</td>
-          </tr>
+<!-- Wrapper -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#F7F5F0;">
+<tr>
+<td align="center" style="padding:32px 16px;">
 
-          <!-- Body -->
-          <tr>
-            <td style="background-color:#ffffff;padding:40px 40px 32px;">
+<!-- Email Container -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="email-container" style="max-width:600px; background-color:#ffffff; border-radius:4px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
 
-              <!-- Greeting -->
-              <p style="margin:0 0 24px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:700;color:#0E3B5C;line-height:1.3;">
-                Dear " + data.parentName + "
-              </p>
+<!-- Logo -->
+<tr>
+<td align="center" style="padding:36px 40px 20px 40px; background-color:#ffffff;">
+  <img src="https://elzanneamao.github.io/SafelyAnchoredSmallSchool/assets/lead-lp-logo.png" alt="Safely Anchored Small School" width="100" height="100" style="display:block; width:100px; height:100px; object-fit:contain;">
+</td>
+</tr>
 
-              <!-- Body text -->
-              <p style="margin:0 0 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#414750;line-height:1.6;">
-                Thank you for your interest in enrolling " + data.childName + " at Safely Anchored Small School.
-              </p>
+<!-- School Name -->
+<tr>
+<td align="center" style="padding:0 40px 24px 40px; font-family:Arial, Helvetica, sans-serif; font-size:22px; line-height:28px; color:#1B6CA8; font-weight:bold;">
+  Safely Anchored Small School
+</td>
+</tr>
 
-              <p style="margin:0 0 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#414750;line-height:1.6;">
-                Our receptionist, Ansun&eacute;, will reach out to you shortly to arrange a time to view the school and see if this could be a place where your child thrives.
-              </p>
-
-              <p style="margin:0 0 32px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#414750;line-height:1.6;">
-                We look forward to meeting you!
-              </p>
-
-              <!-- Divider -->
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr>
-                  <td style="height:1px;background-color:#e4e2dd;font-size:0;line-height:0;">&nbsp;</td>
-                </tr>
-              </table>
-
-              <!-- Sign-off -->
-              <p style="margin:24px 0 4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:600;color:#0E3B5C;line-height:1.4;">
-                The Safely Anchored Small School Team
-              </p>
-              <p style="margin:0 0 4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;color:#717881;line-height:1.5;">
-                Tel: <a href="tel:0817856899" style="color:#005387;text-decoration:none;">081 785 6899</a>
-              </p>
-              <p style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;color:#717881;line-height:1.5;">
-                12 Leadville Way, Sunningdale
-              </p>
-
-            </td>
-          </tr>
-
-          <!-- Footer -->
-          <tr>
-            <td align="center" style="background-color:#0E3B5C;padding:20px 40px;border-radius:0 0 12px 12px;">
-              <a href="https://www.safelyanchored.co.za" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#9acbff;text-decoration:none;">www.safelyanchored.co.za</a>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
+<!-- Gold Divider -->
+<tr>
+<td style="padding:0; font-size:0; line-height:0;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr><td style="height:4px; background-color:#C99F60; font-size:0; line-height:0;">&nbsp;</td></tr>
   </table>
-</div>
+</td>
+</tr>
+
+<!-- Body Content -->
+<tr>
+<td class="body-content" style="padding:36px 48px 36px 48px;">
+
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+
+  <!-- Greeting -->
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:22px; line-height:30px; color:#1B6CA8; font-weight:bold; padding-bottom:24px;">
+    Dear " + parentName + "
+  </td>
+  </tr>
+
+  <!-- Paragraph 1 -->
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#3a3a3a; padding-bottom:20px;">
+    Thank you for your interest in enrolling " + childName + " at Safely Anchored Small School.
+  </td>
+  </tr>
+
+  <!-- Paragraph 2 -->
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#3a3a3a; padding-bottom:20px;">
+    Our receptionist, Ansun&eacute;, will reach out to you shortly to arrange a time to view the school and see if this could be a place where your child thrives.
+  </td>
+  </tr>
+
+  <!-- Paragraph 3 -->
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#3a3a3a; padding-bottom:32px;">
+    We look forward to meeting you!
+  </td>
+  </tr>
+
+  <!-- Thin Divider -->
+  <tr>
+  <td style="padding-bottom:24px; font-size:0; line-height:0;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr><td style="height:1px; background-color:#d8d4cc; font-size:0; line-height:0;">&nbsp;</td></tr>
+    </table>
+  </td>
+  </tr>
+
+  <!-- Signature -->
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#1B6CA8; font-weight:bold; padding-bottom:6px;">
+    The Safely Anchored Small School Team
+  </td>
+  </tr>
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#555555; padding-bottom:2px;">
+    Tel: <a href="tel:0817856899" style="color:#22B3E0; text-decoration:none;">081 785 6899</a>
+  </td>
+  </tr>
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#555555;">
+    12 Leadville Way, Sunningdale
+  </td>
+  </tr>
+
+  </table>
+</td>
+</tr>
+
+<!-- Footer -->
+<tr>
+<td align="center" style="padding:18px 40px; background-color:#1B6CA8;">
+  <a href="https://www.safelyanchored.co.za" style="font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:20px; color:#ffffff; text-decoration:none;">
+    www.safelyanchored.co.za
+  </a>
+</td>
+</tr>
+
+</table>
+<!-- /Email Container -->
+
+<!-- Address footer -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="email-container" style="max-width:600px;">
+<tr>
+<td align="center" style="padding:20px 40px 8px 40px; font-family:Arial, Helvetica, sans-serif; font-size:11px; line-height:16px; color:#999999;">
+  Safely Anchored Small School &middot; 12 Leadville Way, Sunningdale, Cape Town
+</td>
+</tr>
+<tr>
+<td align="center" style="padding:0 40px 20px 40px; font-family:Arial, Helvetica, sans-serif; font-size:11px; line-height:16px; color:#999999;">
+  You received this email because you submitted an enquiry on our website.
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
 <!-- COPY END -->
