@@ -363,28 +363,32 @@
                     <h2 class="font-headline-md text-headline-md text-primary mb-2">Book a School Tour</h2>
                     <p class="font-body-md text-sm text-on-surface-variant mb-6">Come see our unique environment firsthand.</p>
                     <form class="space-y-4">
+                        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <div>
                             <label class="sr-only" for="parent_name">Name + Surname</label>
-                            <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="parent_name" placeholder="Parent Name &amp; Surname" type="text">
+                            <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="parent_name" placeholder="Parent Name &amp; Surname" type="text" required>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="sr-only" for="email">Email</label>
-                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="email" placeholder="Email Address" type="email">
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="email" placeholder="Email Address" type="email" required>
                             </div>
                             <div>
                                 <label class="sr-only" for="phone">Phone</label>
-                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="phone" placeholder="Phone Number" type="tel">
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="phone" placeholder="Phone Number" type="tel" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="sr-only" for="child_name">Child's First Name</label>
-                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="child_name" placeholder="Child's First Name" type="text">
+                                <input class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface placeholder:text-outline transition-colors" id="child_name" placeholder="Child's First Name" type="text" required>
                             </div>
                             <div>
                                 <label class="sr-only" for="grade">Grade in 2027</label>
-                                <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="grade">
+                                <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="grade" required>
                                     <option disabled selected value="">Grade in 2027</option>
                                     <option value="r">Grade R (2027)</option>
                                     <option value="1">Grade 1 (2027)</option>
@@ -397,7 +401,7 @@
                         </div>
                         <div>
                             <label class="sr-only" for="call_time">Best time to call</label>
-                            <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="call_time">
+                            <select class="w-full bg-surface-container-lowest border-outline-variant focus:border-tertiary-container focus:ring-tertiary-container/20 rounded-DEFAULT font-body-md text-on-surface transition-colors" id="call_time" required>
                                 <option disabled selected value="">Best time to call</option>
                                 <option value="morning">Morning (08:00 - 12:00)</option>
                                 <option value="afternoon">Afternoon (12:00 - 16:00)</option>
@@ -405,7 +409,7 @@
                         </div>
                         <div class="flex items-start gap-3 mt-2">
                             <div class="flex items-center h-5">
-                                <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="popia" type="checkbox">
+                                <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="popia" type="checkbox" required>
                             </div>
                             <div class="text-sm text-on-surface-variant">
                                 <label for="popia">I agree to be contacted about enrolment (POPIA).</label>
@@ -947,6 +951,9 @@
             var grade = document.getElementById('grade').value;
             var callTime = document.getElementById('call_time').value;
             var popia = document.getElementById('popia').checked;
+            var honeypot = document.getElementById('website').value;
+
+            if (honeypot) return;
 
             if (!parentName || !email || !phone || !childName || !grade || !callTime) {
                 alert('Please fill in all fields.');
