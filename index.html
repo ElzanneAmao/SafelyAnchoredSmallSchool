@@ -963,7 +963,7 @@
 </a>
 
 <script>
-    // Testimonial carousel
+    // Testimonial carousel — scrolls one slide at a time, loops continuously
     (function() {
         var track = document.getElementById('testimonial-track');
         var slides = track.querySelectorAll('.testimonial-slide');
@@ -972,11 +972,12 @@
         var dotsContainer = document.getElementById('testimonial-dots');
         var currentIndex = 0;
         var slidesPerView = window.innerWidth >= 768 ? 2 : 1;
-        var totalPages = Math.ceil(slides.length / slidesPerView);
+        var totalSlides = slides.length;
+        var maxIndex = totalSlides - slidesPerView;
 
         function buildDots() {
             dotsContainer.innerHTML = '';
-            for (var i = 0; i < totalPages; i++) {
+            for (var i = 0; i <= maxIndex; i++) {
                 var dot = document.createElement('button');
                 dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' +
                     (i === currentIndex ? 'bg-primary w-6' : 'bg-outline-variant');
@@ -990,18 +991,17 @@
         }
 
         function goTo(index) {
-            if (index < 0) index = totalPages - 1;
-            if (index >= totalPages) index = 0;
+            if (index > maxIndex) index = 0;
+            if (index < 0) index = maxIndex;
             currentIndex = index;
-            var offset = currentIndex * (100 / slidesPerView) * slidesPerView;
-            track.style.transform = 'translateX(-' + offset + '%)';
+            var slideWidth = 100 / slidesPerView;
+            track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + '%)';
             buildDots();
         }
 
         prevBtn.addEventListener('click', function() { goTo(currentIndex - 1); });
         nextBtn.addEventListener('click', function() { goTo(currentIndex + 1); });
 
-        // Auto-advance every 6 seconds
         var autoplay = setInterval(function() { goTo(currentIndex + 1); }, 6000);
         track.closest('section').addEventListener('mouseenter', function() { clearInterval(autoplay); });
         track.closest('section').addEventListener('mouseleave', function() {
@@ -1010,8 +1010,8 @@
 
         window.addEventListener('resize', function() {
             slidesPerView = window.innerWidth >= 768 ? 2 : 1;
-            totalPages = Math.ceil(slides.length / slidesPerView);
-            if (currentIndex >= totalPages) currentIndex = totalPages - 1;
+            maxIndex = totalSlides - slidesPerView;
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
             goTo(currentIndex);
         });
 
